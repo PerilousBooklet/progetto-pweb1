@@ -1,0 +1,3 @@
+[submodule "pw24-gendata"]
+	path = pw24-gendata
+	url = git@github.com:socket772/pw24-gendata.git
