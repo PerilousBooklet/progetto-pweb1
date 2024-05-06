@@ -24,14 +24,14 @@ body {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  
+
   color: white;
   text-align: center;
   padding: 5px;
   font-size: 10px;
 }
 
-.row {  
+.row {
   display: -ms-flexbox; /* IE10 */
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
@@ -47,7 +47,7 @@ body {
   color: white;
 }
 
-.main {   
+.main {
   -ms-flex: 80%; /* IE10 */
   flex: 80%;
   background-color: #b5400e;
@@ -66,7 +66,7 @@ body {
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
-  .row {   
+  .row {
     flex-direction: column;
   }
 }
@@ -77,4 +77,13 @@ body {
     float: none;
     width: 100%;
   }
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightgray;
+  text-align: center;
 }
