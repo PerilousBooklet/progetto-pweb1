@@ -11,21 +11,17 @@
 </head>
 
 <body>
-  
-  <!-- Header -->
-  <div class="header">
-    <h1>HEADER</h1>
-  </div>
-  
-  <!-- Navigation bar -->
-  <div class="navbar">
-    <h1>NAVIGATION BAR</h1>
-  </div>
-  
+
+<?php
+  include 'header.html';
+	include 'nav.html';
+	include 'footer.html';
+?>
+
   <!-- Row -->
   <div class="row">
     <!-- Form Menu -->
-    <div class="side">
+    <div class="filterPanel">
       <h1>FORM MENU</h1>
     </div>
     
@@ -57,17 +53,9 @@
         <li>Item 1</li>
         <li>Item 1</li>
         <li>Item 1</li>
-        <li>Item 1</li>
-        <li>Item 1</li>
-        <li>Item 1</li>
       </ul>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <h1>FOOTER</h1>
-  </footer>
   
 </body>
 

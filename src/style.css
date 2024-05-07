@@ -7,18 +7,18 @@ body {
   margin: 0;
 }
 
-.header {
+header {
   padding: 20px;
   text-align: center;
   background: #1abc9c;
   color: white;
 }
 
-.header h1 {
+header h1 {
   font-size: 20px;
 }
 
-.navbar {
+nav {
   overflow: hidden;
   background-color: #046c8c;
   position: sticky;
@@ -31,6 +31,17 @@ body {
   font-size: 10px;
 }
 
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #8e57c1;
+  background-color: #b5400e;
+  color: white;
+  text-align: center;
+}
+
 .row {
   display: -ms-flexbox; /* IE10 */
   display: flex;
@@ -38,30 +49,10 @@ body {
   flex-wrap: wrap;
 }
 
-.side {
-  -ms-flex: 20%; /* IE10 */
-  flex: 20%;
+.filterPanel {
   background-color: #d88b27;
   padding: 20px;
-
   color: white;
-}
-
-.main {
-  -ms-flex: 80%; /* IE10 */
-  flex: 80%;
-  background-color: #b5400e;
-  padding: 20px;
-
-  color: white;
-}
-
-.footer {
-  background: #8e57c1;
-  text-align: center;
-  padding: 20px;
-  color: white;
-  font-size: 10px;
 }
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
@@ -77,13 +68,4 @@ body {
     float: none;
     width: 100%;
   }
-}
-
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: lightgray;
-  text-align: center;
 }
