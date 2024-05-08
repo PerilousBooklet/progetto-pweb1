@@ -22,7 +22,6 @@ nav {
   overflow: hidden;
   background-color: #046c8c;
   position: sticky;
-  position: -webkit-sticky;
   top: 0;
 
   color: white;
@@ -43,10 +42,8 @@ footer {
 }
 
 .row {
-  display: -ms-flexbox; /* IE10 */
   display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
+  min-height: 90vh;
 }
 
 .filterPanel {
