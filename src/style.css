@@ -12,10 +12,12 @@ header {
   text-align: center;
   background: #1abc9c;
   color: white;
+  margin: 0.2%;
 }
 
 header h1 {
   font-size: 20px;
+  margin: 0.2%;
 }
 
 nav {
@@ -28,34 +30,74 @@ nav {
   text-align: center;
   padding: 5px;
   font-size: 10px;
+  margin: 0.2%;
 }
 
 footer {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
-  background: #8e57c1;
+  width: 99.6%;
   background-color: #b5400e;
   color: white;
   text-align: center;
+  margin: 0.2%;
 }
 
 .row {
   display: flex;
-  min-height: 90vh;
+  margin: 0.2%;
 }
 
 .filterPanel {
   background-color: #d88b27;
   padding: 20px;
   color: white;
+  min-height: 46vh;
+}
+
+.queryResult {
+  background-color: #d89283;
+  width: 100%;
+  margin-left: 0.2%;
+  min-height: 76vh;
+}
+
+.queryResult h1 {
+  font-size: ;
+  margin: 1%;
 }
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
   .row {
     flex-direction: column;
+  }
+
+  header {
+    margin: 0.8%;
+  }
+  
+  footer {
+    width: 98.4%;
+    margin-top: 0.8%;
+    margin-bottom: 0.8%;
+    margin-right: 0%;
+    margin-left: 0.8%;
+  }
+
+  nav {
+    margin: 0.8%;
+  }
+
+  .row {
+    margin: 0.8%;
+  }
+  
+  .queryResult {
+    margin-left: 0%;
+    margin-top: 0.8%;
+    height: 90vh;
   }
 }
 

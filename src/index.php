@@ -17,13 +17,13 @@
   include 'nav.html';
   include 'footer.html';
   ?>
-
+  
   <!-- Row -->
   <div class="row">
     <!-- Form Menu -->
     <div class="filterPanel">
       <div class="codiceComune">
-        <label for="codiceComune">Codice Comune</label>
+        <label for="codiceComune">Placeholder 1</label>
         <br>
         <input type="text">
       </div>
@@ -31,7 +31,7 @@
       <br>
 
       <div class="provinciaComune">
-        <label for="provinciaComune">Provincia Comune</label>
+        <label for="provinciaComune">Placeholder 2</label>
         <br>
         <input type="text">
       </div>
@@ -39,16 +39,16 @@
       <br>
 
       <div class="nomeComune">
-        <label for="nomeComune">Nome Comune</label>
+        <label for="nomeComune">Placeholder 3</label>
         <br>
         <input type="text">
       </div>
 
     </div>
 
-    <!-- Content -->
-    <div class="main">
-      <h1>Qua ci andrà la tabella (anche nelle altre pagine)</h1>
+    <!-- Content: Query Output -->
+    <div class="queryResult">
+      <h1>Placeholder 4</h1>
     </div>
   </div>
 
