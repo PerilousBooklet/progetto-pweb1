@@ -46,10 +46,10 @@
 
     </div>
 
-    <!-- Content -->
-    <div class="main">
-      <h1>Qua ci andrà la tabella (anche nelle altre pagine)</h1>
-    </div>
+    <!-- Content: Query Output -->
+    <?php
+      include 'queryOutput.php'
+    ?>
   </div>
 
 </body>

@@ -53,6 +53,11 @@
 
         </div>
 
+        <!-- Content: Query Output -->
+        <?php
+            include 'queryOutput.php'
+        ?>
+
     </div>
 
 </body>

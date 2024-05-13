@@ -72,8 +72,12 @@
                 <label for="tutti">Tutti</label>
             </div>
 
-
         </div>
+
+        <!-- Content: Query Output -->
+        <?php
+            include 'queryOutput.php'
+        ?>
 
     </div>
 
