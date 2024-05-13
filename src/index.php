@@ -22,33 +22,23 @@
   <div class="row">
     <!-- Form Menu -->
     <div class="filterPanel">
-      <div class="codiceComune">
-        <label for="codiceComune">Placeholder 1</label>
-        <br>
-        <input type="text">
+      <div>
+        <h2>Placeholder</h2>
       </div>
 
-      <br>
-
-      <div class="provinciaComune">
-        <label for="provinciaComune">Placeholder 2</label>
-        <br>
-        <input type="text">
+      <div>
+        <h2>Placeholder</h2>
       </div>
 
-      <br>
-
-      <div class="nomeComune">
-        <label for="nomeComune">Placeholder 3</label>
-        <br>
-        <input type="text">
+      <div>
+        <h2>Placeholder</h2>
       </div>
 
     </div>
 
     <!-- Content: Query Output -->
     <div class="queryResult">
-      <h1>Placeholder 4</h1>
+      <h1>Placeholder</h1>
     </div>
   </div>
 
