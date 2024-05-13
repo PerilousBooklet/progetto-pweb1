@@ -12,43 +12,51 @@
 
 <body>
 
-    <?php
-    include 'header.html';
-    include 'nav.html';
-    include 'footer.html';
-    ?>
+    <div id="wholePage" class="roundedElement">
 
-    <div class="row">
-        <!-- Form Menu -->
-        <div class="filterPanel">
-            <div class="codiceNazione">
-                <label for="codiceNazione">Codice Nazione</label>
+        <?php
+        include 'header.html';
+        include 'nav.html';
+        include 'footer.html';
+        ?>
+
+        <div id="row">
+            <!-- Form Menu -->
+            <div id="filterPanel" class="roundedElement">
+                <div id="codiceNazione">
+                    <label for="codiceNazione">Codice Nazione</label>
+                    <br>
+                    <input type="text">
+                </div>
+
                 <br>
-                <input type="text">
+
+                <div id="codiceEuropeoAutostrada">
+                    <label for="codiceEuropeo">Codice Europeo</label>
+                    <br>
+                    <input type="text">
+                </div>
+
+                <br>
+
+                <div id="nomeAutostrada">
+                    <label for="nomeAutostrada">Nome Autostrada</label>
+                    <br>
+                    <input type="text">
+                </div>
+
+                <br>
+
+                <div id="lunghezzaAutostrada">
+                    <label for="lunghezzaAutostrada">Lunghezza Autostrada</label>
+                    <br>
+                    <input type="text">
+                </div>
+
             </div>
 
-            <br>
-
-            <div class="codiceEuropeoAutostrada">
-                <label for="codiceEuropeo">Codice Europeo</label>
-                <br>
-                <input type="text">
-            </div>
-
-            <br>
-
-            <div class="nomeAutostrada">
-                <label for="nomeAutostrada">Nome Autostrada</label>
-                <br>
-                <input type="text">
-            </div>
-
-            <br>
-
-            <div class="lunghezzaAutostrada">
-                <label for="lunghezzaAutostrada">Lunghezza Autostrada</label>
-                <br>
-                <input type="text">
+            <div id="queryResult" class="roundedElement">
+                <h1>Placeholder</h1>
             </div>
 
         </div>

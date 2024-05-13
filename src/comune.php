@@ -12,44 +12,50 @@
 
 <body>
 
-  <?php
-  include 'header.html';
-  include 'nav.html';
-  include 'footer.html';
-  ?>
+  <div id="wholePage" class="roundedElement">
 
-  <!-- Row -->
-  <div class="row">
-    <!-- Form Menu -->
-    <div class="filterPanel">
-      <div class="codiceComune">
-        <label for="codiceComune">Codice Comune</label>
+    <?php
+    include 'header.html';
+    include 'nav.html';
+    include 'footer.html';
+    ?>
+
+
+    <!-- Row -->
+    <div id="row">
+      <!-- Form Menu -->
+      <div id="filterPanel" class="roundedElement">
+        <div id="codiceComune">
+          <label for="codiceComune">Codice Comune</label>
+          <br>
+          <input type="text">
+        </div>
+
         <br>
-        <input type="text">
+
+        <div id="provinciaComune">
+          <label for="provinciaComune">Provincia Comune</label>
+          <br>
+          <input type="text">
+        </div>
+
+        <br>
+
+        <div id="nomeComune">
+          <label for="nomeComune">Nome Comune</label>
+          <br>
+          <input type="text">
+        </div>
+
       </div>
 
-      <br>
-
-      <div class="provinciaComune">
-        <label for="provinciaComune">Provincia Comune</label>
-        <br>
-        <input type="text">
-      </div>
-
-      <br>
-
-      <div class="nomeComune">
-        <label for="nomeComune">Nome Comune</label>
-        <br>
-        <input type="text">
+      <!-- Content -->
+      <div id="queryResult" class="roundedElement">
+        <h1>Qua ci andrà la tabella (anche nelle altre pagine)</h1>
       </div>
 
     </div>
 
-    <!-- Content -->
-    <div class="main">
-      <h1>Qua ci andrà la tabella (anche nelle altre pagine)</h1>
-    </div>
   </div>
 
 </body>
