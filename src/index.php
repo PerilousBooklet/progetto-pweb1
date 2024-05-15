@@ -22,7 +22,7 @@
 
     <!-- Row -->
     <div id="row">
-      
+
       <div id="queryResult" class="roundedElement">
         <h1>Landing Page</h1>
       </div>

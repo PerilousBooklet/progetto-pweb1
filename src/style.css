@@ -1,3 +1,9 @@
+/* PALETTE */
+/* main accent #2C8DE5; */
+/* secondary accent  #7cbefb80*/
+/* background color: #FFFFFF; */
+/* secondary background color: #eaeef4; */
+
 * {
   box-sizing: border-box;
 }
@@ -5,6 +11,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+  height: 100%;
+
   background-color: #eaeef4;
 }
 
@@ -57,12 +65,12 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  transition: 0.5s;
 }
 
 li a:hover {
   background-color: #7cbefb80;
 }
-
 
 footer {
   position: fixed;
@@ -75,13 +83,9 @@ footer {
   margin: 26px;
 }
 
-button:hover {
-  background-color: #2C8DE5;
-}
-
 #row {
   display: flex;
-  max-height: 50vh;
+  height: 70vh;
 
   margin-top: 15px;
 }
@@ -90,7 +94,7 @@ button:hover {
   background-color: #FFFFFF;
   padding: 20px;
   color: black;
-  min-height: 46vh;
+  height: 100%;
   margin-right: 15px;
 }
 
@@ -98,7 +102,7 @@ button:hover {
 #queryResult {
   background-color: #FFFFFF;
   width: 100%;
-  min-height: 76vh;
+  height: 100%;
 }
 
 #queryResult h1 {
