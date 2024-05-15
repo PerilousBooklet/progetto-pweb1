@@ -22,26 +22,11 @@
 
     <!-- Row -->
     <div id="row">
-      <!-- Form Menu -->
-      <div id="filterPanel" class="roundedElement">
-        <div class="filterTuple">
-          <h2>Placeholder</h2>
-        </div>
-
-        <div>
-          <h2>Placeholder</h2>
-        </div>
-
-        <div>
-          <h2>Placeholder</h2>
-        </div>
-
-      </div>
-
-      <!-- Content: Query Output -->
+      
       <div id="queryResult" class="roundedElement">
-        <h1>Placeholder</h1>
+        <h1>Landing Page</h1>
       </div>
+
     </div>
 
   </div>

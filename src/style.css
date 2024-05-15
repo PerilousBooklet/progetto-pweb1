@@ -5,7 +5,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  background-color: #F5F7FA;
+  background-color: #eaeef4;
 }
 
 header {
@@ -60,7 +60,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #2C8DE5;
+  background-color: #7cbefb80;
 }
 
 
@@ -117,11 +117,7 @@ button:hover {
   }
 
   footer {
-    width: 98.4%;
-    margin-top: 0.8%;
-    margin-bottom: 0.8%;
-    margin-right: 0%;
-    margin-left: 0.8%;
+    background-color: 
   }
 
   #nav {
