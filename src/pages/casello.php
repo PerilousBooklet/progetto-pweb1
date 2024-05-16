@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Database Casello</title>
-    <link rel="stylesheet" href="./style.css">
-    </link>
+    <link rel="stylesheet" href="../css/style.css"></link>
+    <script src="../js/script.js"></script>
 </head>
 
 <body>
@@ -15,9 +15,8 @@
     <div id="wholePage" class="roundedElement">
 
         <?php
-        include 'header.html';
-        include 'nav.html';
-        include 'footer.html';
+            include 'header.html';
+            include 'nav.html';
         ?>
 
         <div id="row">
@@ -90,6 +89,10 @@
             </div>
 
         </div>
+
+        <?php
+            include 'footer.html';
+        ?>
 
     </div>
 
