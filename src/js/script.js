@@ -6,5 +6,5 @@ function resizeDiv() {
 }
 
 // Call the function on page load and when the window is resized
-window.addEventListener("load", resizeDiv);
-window.addEventListener("resize", resizeDiv);
+//window.addEventListener("load", resizeDiv);
+//window.addEventListener("resize", resizeDiv);
