@@ -1,7 +1,8 @@
 /* PALETTE */
 /* main accent #2C8DE5; */
+/* 7cbefb5c */
 /* secondary accent  #7cbefb9d*/
-/* tertiary accent #7cbefb9d */
+/* tertiary accent #7cbefb37 */
 /* background color: #FFFFFF; */
 /* secondary background color: #eaeef4; */
 
@@ -27,7 +28,6 @@ body {
 }
 
 .roundedElement {
-  /* border-radius: 0.4vw; */
   border-radius: 13px;
 }
 
@@ -40,7 +40,7 @@ header {
 
 /* NAVBAR RULES */
 nav {
-  background-color: #ffffff;
+  background-color: #7cbefb74;
   padding: 5px;
   font-size: 15px;
   margin-top: 15px;
@@ -64,12 +64,13 @@ nav li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  border-radius: 20px;
   transition: 0.5s;
-  background-color: #7cbefb37;
 }
 
 nav li a:hover {
-  background-color: #7cbefb9d;
+  background-color: #eaeef4;
+  border-radius: 9px;
 }
 
 #row {
@@ -86,12 +87,17 @@ nav li a:hover {
 }
 
 #filterPanel {
-  background-color: #ffffff;
+  background-color: #7cbefb74;
   padding: 20px;
   color: black;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 7px;
 }
 
 #queryResult {
