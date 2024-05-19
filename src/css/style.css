@@ -11,6 +11,7 @@
 
 html {
   height: 100%;
+  scrollbar-width: thin;
 }
 
 body {
@@ -39,22 +40,21 @@ header {
 
 /* NAVBAR RULES */
 nav {
-  overflow: hidden;
   background-color: #ffffff;
   padding: 5px;
   font-size: 15px;
   margin-top: 15px;
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-}
-
-nav li {
-  float: left;
+  width: 0%;
+  display: flex;
+  flex-direction: row;
 }
 
 nav li a {
@@ -76,7 +76,8 @@ nav li a:hover {
   display: flex;
   flex: 1;
   margin-top: 15px;
-  overflow: auto;
+  overflow: hidden;
+  scrollbar-width: thin;
 }
 
 #landingPageDiv {
@@ -90,6 +91,7 @@ nav li a:hover {
   color: black;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: thin;
 }
 
 #queryResult {
@@ -97,6 +99,7 @@ nav li a:hover {
   flex: 1;
   margin-left: 15px;
   overflow: auto;
+  scrollbar-width: thin;
 }
 
 #queryResult h1 {
@@ -109,6 +112,7 @@ footer {
   background-color: #ffffff;
   color: black;
   margin-top: 15px;
+  padding: 3px;
   height: fit-content;
 }
 
@@ -134,7 +138,7 @@ footer li {
 
 footer li a {
   display: block;
-  margin-right: 10px;
+  padding: 7px;
   color: black;
   text-decoration: underline;
   transition: 0.5s;
@@ -166,34 +170,21 @@ footer li a:hover {
     flex-direction: column;
   }
 
-  header {
-    /* margin-bottom: 3%; */
-  }
-
-  footer {
-    line-height: normal;
-  }
-
-  #nav {
-    /* margin-bottom: 3%; */
-  }
-
-  #row {
-    overflow: hidden;
-    /* height: ; */
-  }
-
   #filterPanel {
-    /* height: fit-content;
-    margin-bottom: 3%; */
     width: 100%;
+    flex: 0.3;
     margin-bottom: 7.5px;
   }
 
   #queryResult {
+    flex: 0.7;
     margin-left: 0px;
     width: 100%;
   }
+}
+
+footer {
+
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
