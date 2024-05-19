@@ -6,95 +6,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Database Casello</title>
-    <link rel="stylesheet" href="../css/style.css"></link>
+    <link rel="stylesheet" href="../css/style.css">
+    </link>
     <script src="../js/script.js"></script>
 </head>
 
 <body>
 
-    <div id="wholePage" class="roundedElement">
+    <?php
+    include 'header.html';
+    include 'nav.html';
+    ?>
 
-        <?php
-            include 'header.html';
-            include 'nav.html';
-        ?>
-
-        <div id="row">
-            <!-- Form Menu -->
-            <div id="filterPanel" class="roundedElement">
-                <div id="nomeCasello">
-                    <label for="nomeCasello">Nome Casello</label>
-                    <br>
-                    <input type="text">
-                </div>
-
+    <main id="row">
+        <!-- Form Menu -->
+        <div id="filterPanel" class="roundedElement">
+            <div id="nomeCasello">
+                <label for="nomeCasello">Nome Casello</label>
                 <br>
-
-                <div id="coordinataX">
-                    <label for="coordinataX">Coordinata X</label>
-                    <br>
-                    <input type="text">
-                </div>
-
-                <br>
-
-                <div id="CoordinataY">
-                    <label for="CoordinataY">Coordinata Y</label>
-                    <br>
-                    <input type="text">
-                </div>
-
-                <br>
-
-                <div id="codiceCasello">
-                    <label for="codiceCasello">Codice Casello</label>
-                    <br>
-                    <input type="text">
-                </div>
-
-                <br>
-
-                <div id="ComuneCasello">
-                    <label for="comuneCasello">Comune Casello</label>
-                    <br>
-                    <input type="text">
-                </div>
-
-                <br>
-
-                <div id="tipoCasello">
-                    <label for="tipoCasello">Tipo Casello</label>
-
-                    <br>
-
-                    <input type="radio" name="casello">
-                    <label for="presenziato">Presenziato</label>
-
-                    <br>
-
-                    <input type="radio" name="casello">
-                    <label for="automatico">Automatico</label>
-
-                    <br>
-
-                    <input type="radio" name="casello" checked>
-                    <label for="tutti">Tutti</label>
-                </div>
-
-
+                <input type="text">
             </div>
 
-            <div id="queryResult" class="roundedElement">
-                <h1>Placeholder</h1>
+            <br>
+
+            <div id="coordinataX">
+                <label for="coordinataX">Coordinata X</label>
+                <br>
+                <input type="text">
             </div>
+
+            <br>
+
+            <div id="CoordinataY">
+                <label for="CoordinataY">Coordinata Y</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <br>
+
+            <div id="codiceCasello">
+                <label for="codiceCasello">Codice Casello</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <br>
+
+            <div id="ComuneCasello">
+                <label for="comuneCasello">Comune Casello</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <br>
+
+            <div id="tipoCasello">
+                <label for="tipoCasello">Tipo Casello</label>
+
+                <br>
+
+                <input type="radio" name="casello">
+                <label for="presenziato">Presenziato</label>
+
+                <br>
+
+                <input type="radio" name="casello">
+                <label for="automatico">Automatico</label>
+
+                <br>
+
+                <input type="radio" name="casello" checked>
+                <label for="tutti">Tutti</label>
+            </div>
+
 
         </div>
 
-        <?php
-            include 'footer.html';
-        ?>
+        <div id="queryResult" class="roundedElement">
+            <h1>Placeholder</h1>
+        </div>
 
-    </div>
+    </main>
+
+    <?php
+    include 'footer.html';
+    ?>
 
 </body>
 
