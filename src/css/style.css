@@ -1,9 +1,12 @@
 /* PALETTE */
 /* main accent #2C8DE5; */
 /* 7cbefb5c */
+/* 53acff */
 /* secondary accent  #7cbefb9d*/
 /* tertiary accent #7cbefb37 */
+
 /* background color: #FFFFFF; */
+/* d3e9fd */
 /* secondary background color: #eaeef4; */
 
 * {
@@ -40,7 +43,8 @@ header {
 
 /* NAVBAR RULES */
 nav {
-  background-color: #7cbefb74;
+  background-color: #d3e9fd;
+  border: 1px solid #53acff;
   padding: 5px;
   font-size: 15px;
   margin-top: 15px;
@@ -69,7 +73,7 @@ nav li a {
 }
 
 nav li a:hover {
-  background-color: #eaeef4;
+  background-color: #ffffff;
   border-radius: 9px;
 }
 
@@ -87,7 +91,8 @@ nav li a:hover {
 }
 
 #filterPanel {
-  background-color: #7cbefb74;
+  background-color: #d3e9fd;
+  border: 1px solid #53acff;
   padding: 20px;
   color: black;
   overflow-y: auto;
@@ -102,14 +107,17 @@ input {
 
 #queryResult {
   background-color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
   flex: 1;
   margin-left: 15px;
   overflow: auto;
   scrollbar-width: thin;
 }
 
-#queryResult h1 {
-  margin: 1%;
+#queryResult table th {
+  text-align: left;
+  font-size: large;
 }
 
 footer {
@@ -190,7 +198,6 @@ footer li a:hover {
 }
 
 footer {
-
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
