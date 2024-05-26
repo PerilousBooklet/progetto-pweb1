@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Database Casello</title>
-    <link rel="stylesheet" href="./style.css">
-    </link>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" href="../icons/road.png" type="image/x-icon" />
 </head>
 
 <body>
@@ -15,13 +15,12 @@
     <?php
     include 'header.html';
     include 'nav.html';
-    include 'footer.html';
     ?>
 
-    <div class="row">
+    <main id="row">
         <!-- Form Menu -->
-        <div class="filterPanel">
-            <div class="nomeCasello">
+        <div id="filterPanel" class="roundedElement">
+            <div id="nomeCasello">
                 <label for="nomeCasello">Nome Casello</label>
                 <br>
                 <input type="text">
@@ -29,7 +28,7 @@
 
             <br>
 
-            <div class="coordinataX">
+            <div id="coordinataX">
                 <label for="coordinataX">Coordinata X</label>
                 <br>
                 <input type="text">
@@ -37,7 +36,7 @@
 
             <br>
 
-            <div class="CoordinataY">
+            <div id="CoordinataY">
                 <label for="CoordinataY">Coordinata Y</label>
                 <br>
                 <input type="text">
@@ -45,7 +44,7 @@
 
             <br>
 
-            <div class="codiceCasello">
+            <div id="codiceCasello">
                 <label for="codiceCasello">Codice Casello</label>
                 <br>
                 <input type="text">
@@ -53,7 +52,15 @@
 
             <br>
 
-            <div class="tipoCasello">
+            <div id="ComuneCasello">
+                <label for="comuneCasello">Comune Casello</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <br>
+
+            <div id="tipoCasello">
                 <label for="tipoCasello">Tipo Casello</label>
 
                 <br>
@@ -75,7 +82,15 @@
 
         </div>
 
-    </div>
+        <div id="queryResult" class="roundedElement">
+            <h1>Placeholder</h1>
+        </div>
+
+    </main>
+
+    <?php
+    include 'footer.html';
+    ?>
 
 </body>
 
