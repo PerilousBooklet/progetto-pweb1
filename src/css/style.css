@@ -1,13 +1,22 @@
-/* PALETTE */
-/* main accent #2C8DE5; */
-/* 7cbefb5c */
-/* 53acff */
-/* secondary accent  #7cbefb9d*/
-/* tertiary accent #7cbefb37 */
+/* Global Variable */
+:root {
+  /* PALETTE */
+  --main_accent: #2c8de5;
+  --secondary_accent: #7cbefb9d;
+  --tertiary_accent: #7cbefb37;
 
-/* background color: #FFFFFF; */
-/* d3e9fd */
-/* secondary background color: #eaeef4; */
+  --border_color: #53acff;
+
+  --primary_background: #ffffff;
+  --secondary_background: #d3e9fd;
+  --tertiary_background: #eaeef4;
+
+  /* SPACING */
+  --body_padding: 26px;
+  --inter_margin: 15px;
+
+  --rounded_radius: 13px;
+}
 
 * {
   box-sizing: border-box;
@@ -18,36 +27,40 @@ html {
   scrollbar-width: thin;
 }
 
+#landingPageTitle {
+  font-size: 100px;
+}
+
 body {
   display: flex;
   flex-direction: column;
-  padding: 26px;
+  padding: var(--body_padding);
   height: 100%;
   flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  background-color: #eaeef4;
+  background-color: var(--tertiary_background);
   overflow: auto;
 }
 
 .roundedElement {
-  border-radius: 13px;
+  border-radius: var(--rounded_radius);
 }
 
 header {
   padding: 10px;
   text-align: center;
-  background: #2c8de5;
+  background: var(--main_accent);
   color: white;
 }
 
 /* NAVBAR RULES */
 nav {
-  background-color: #d3e9fd;
-  border: 1px solid #53acff;
+  background-color: var(--secondary_background);
+  border: 1px solid var(--border_color);
   padding: 5px;
   font-size: 15px;
-  margin-top: 15px;
+  margin-top: var(--inter_margin);
   overflow: auto;
   scrollbar-width: thin;
 }
@@ -66,33 +79,33 @@ nav li a {
   margin-right: 5px;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: 15px;
   text-decoration: none;
   border-radius: 20px;
   transition: 0.5s;
 }
 
 nav li a:hover {
-  background-color: #ffffff;
-  border-radius: 9px;
+  background-color: var(--primary_background);
+  border-radius: 9px; /*  corrisponde visivamente a 15px sui div */
 }
 
 #row {
   display: flex;
   flex: 1;
-  margin-top: 15px;
+  margin-top: var(--inter_margin);
   overflow: hidden;
   scrollbar-width: thin;
 }
 
 #landingPageDiv {
-  background-color: #ffffff;
+  background-color: var(--primary_background);
   flex: 1;
 }
 
 #filterPanel {
-  background-color: #d3e9fd;
-  border: 1px solid #53acff;
+  background-color: var(--secondary_background);
+  border: 1px solid var(--border_color);
   padding: 20px;
   color: black;
   overflow-y: auto;
@@ -106,11 +119,11 @@ input {
 }
 
 #queryResult {
-  background-color: #ffffff;
+  background-color: var(--primary_background);
   padding-left: 20px;
   padding-right: 20px;
   flex: 1;
-  margin-left: 15px;
+  margin-left: var(--inter_margin);
   overflow: auto;
   scrollbar-width: thin;
 }
@@ -123,9 +136,9 @@ input {
 footer {
   align-items: center;
   display: flex;
-  background-color: #ffffff;
+  background-color: var(--primary_background);
   color: black;
-  margin-top: 15px;
+  margin-top: var(--inter_margin);
   padding: 3px;
   height: fit-content;
 }
@@ -159,7 +172,7 @@ footer li a {
 }
 
 footer li a:hover {
-  background-color: #7cbefb9d;
+  background-color: var(--secondary_accent);
 }
 
 /* Stile della tabella */

@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Database Comune</title>
-  <link rel="stylesheet" href="../css/style.css">
-  </link>
-  <script src="../js/script.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../icons/road.png" type="image/x-icon" />
 </head>
 
 <body>

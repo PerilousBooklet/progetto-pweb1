@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-
 <html lang="it">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crediti</title>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" href="../icons/road.png" type="image/x-icon" />
 </head>
 
-<body id="body">
+<body>
 
   <?php
   include 'header.html';
   include 'nav.html';
   ?>
 
-  <!-- Row -->
-  <main id="row">
-
-    <div id="landingPageDiv" class="roundedElement">
-      <h1>Landing Page</h1>
+  <main>
+    <div>
+      <p><a href="https://www.flaticon.com/free-icons/road" title="road icons">Road icons created by Vectors Market -
+          Flaticon</a></p>
     </div>
-
   </main>
 
   <?php
