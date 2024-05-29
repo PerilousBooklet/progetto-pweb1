@@ -12,17 +12,17 @@
 
 <body id="body">
 
-  <?php
-  include 'header.html';
-  include 'nav.html';
-  ?>
+  <main id="landingPageTitleMain">
+    <h1 id="landingPageTitle">DATABASE AUTOSTRADE</h1>
 
-  <!-- Row -->
-  <main id="row">
-
-    <div id="landingPageDiv" class="roundedElement">
-      <h1>Landing Page</h1>
-    </div>
+    <nav class="roundedElement" id="landingPageNav">
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="comune.php">Comune</a></li>
+        <li><a href="casello.php">Casello</a></li>
+        <li><a href="autostrada.php">Autostrada</a></li>
+      </ul>
+    </nav>
 
   </main>
 
