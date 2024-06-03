@@ -83,7 +83,10 @@
         </div>
 
         <div id="queryResult" class="roundedElement">
-            <h1>Placeholder</h1>
+            <h2>Risultato:</h2>
+            <?php
+            include 'mockUpTable.php';
+            ?>
         </div>
 
     </main>

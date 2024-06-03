@@ -27,10 +27,6 @@ html {
   scrollbar-width: thin;
 }
 
-#landingPageTitle {
-  font-size: 100px;
-}
-
 body {
   display: flex;
   flex-direction: column;
@@ -55,7 +51,7 @@ header {
 }
 
 /* NAVBAR RULES */
-nav {
+#nav {
   background-color: var(--secondary_background);
   border: 1px solid var(--border_color);
   padding: 5px;
@@ -90,17 +86,12 @@ nav li a:hover {
   border-radius: 9px; /*  corrisponde visivamente a 15px sui div */
 }
 
-#row {
+main {
   display: flex;
   flex: 1;
   margin-top: var(--inter_margin);
   overflow: hidden;
   scrollbar-width: thin;
-}
-
-#landingPageDiv {
-  background-color: var(--primary_background);
-  flex: 1;
 }
 
 #filterPanel {

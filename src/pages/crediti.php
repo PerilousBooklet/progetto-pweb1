@@ -16,7 +16,7 @@
   include 'nav.html';
   ?>
 
-  <main>
+  <main class="main">
     <div>
       <p><a href="https://www.flaticon.com/free-icons/road" title="road icons">Road icons created by Vectors Market -
           Flaticon</a></p>
