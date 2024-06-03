@@ -50,23 +50,6 @@ header {
   color: white;
 }
 
-#landingPageTitleMain {
-  flex: auto;
-  text-align: center;
-}
-
-#landingPageTitle {
-  font-size: 100px;
-  color: var(--main_accent);
-}
-
-#landingPageNav {
-  background-color: var(--secondary_background);
-  border: 1px solid var(--border_color);
-  padding: 5px;
-  font-size: 15px;
-}
-
 /* NAVBAR RULES */
 #nav {
   background-color: var(--secondary_background);
