@@ -103,7 +103,7 @@ nav li a:hover {
   border-radius: 9px; /*  corrisponde visivamente a 15px sui div */
 }
 
-#row {
+main {
   display: flex;
   flex: 1;
   margin-top: var(--inter_margin);

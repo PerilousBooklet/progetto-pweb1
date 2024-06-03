@@ -12,7 +12,7 @@
 
 <body id="body">
 
-  <main id="landingPageTitleMain">
+  <div id="landingPageTitleMain">
     <h1 id="landingPageTitle">DATABASE AUTOSTRADE</h1>
 
     <nav class="roundedElement" id="landingPageNav">
@@ -24,7 +24,7 @@
       </ul>
     </nav>
 
-  </main>
+  </div>
 
   <?php
   include 'footer.html';
