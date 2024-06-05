@@ -13,6 +13,7 @@
 <body>
 
     <?php
+    include 'custom-lib.php';
     include 'header.html';
     include 'nav.html';
     ?>
@@ -55,7 +56,7 @@
         <div id="queryResult" class="roundedElement">
             <h2>Risultato:</h2>
             <?php
-            include 'mockUpTable.php';
+            table_gen("Autostrada");
             ?>
         </div>
 

@@ -13,6 +13,7 @@
 <body>
 
   <?php
+  include 'custom-lib.php';
   include 'header.html';
   include 'nav.html';
   ?>
@@ -21,35 +22,40 @@
   <main id="row">
     <!-- Form Menu -->
     <div id="filterPanel" class="roundedElement">
-      <div id="codiceComune">
-        <label for="codiceComune">Codice Comune</label>
+      <div id="filterPanelOptions">
+        <div id="codiceComune">
+          <label for="codiceComune">Codice Comune</label>
+          <br>
+          <input type="text">
+        </div>
+
         <br>
-        <input type="text">
+
+        <div id="provinciaComune">
+          <label for="provinciaComune">Provincia Comune</label>
+          <br>
+          <input type="text">
+        </div>
+
+        <br>
+
+        <div id="nomeComune">
+          <label for="nomeComune">Nome Comune</label>
+          <br>
+          <input type="text">
+        </div>
       </div>
 
-      <br>
-
-      <div id="provinciaComune">
-        <label for="provinciaComune">Provincia Comune</label>
-        <br>
-        <input type="text">
+      <div id="submitDiv">
+        <input id="submit" type="submit">
       </div>
-
-      <br>
-
-      <div id="nomeComune">
-        <label for="nomeComune">Nome Comune</label>
-        <br>
-        <input type="text">
-      </div>
-
     </div>
 
     <!-- Content -->
     <div id="queryResult" class="roundedElement">
       <h2>Risultato:</h2>
       <?php
-      include 'mockUpTable.php';
+      table_gen("Autostrada");
       ?>
     </div>
 

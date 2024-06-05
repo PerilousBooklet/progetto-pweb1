@@ -278,7 +278,7 @@ fn fill_autostrade() -> Vec<Audostrada> {
 			cod_eu: format!("E{}", element),
 			nome: format!("A{}-E{}", element, element),
 			lunghezza: rng.gen()
-		};
+		};z
 
 		autostrade_list.push(record);
 	}

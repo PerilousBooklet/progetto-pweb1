@@ -95,6 +95,8 @@ main {
 }
 
 #filterPanel {
+  display: flex;
+  flex-direction: column;
   background-color: var(--secondary_background);
   border: 1px solid var(--border_color);
   padding: 20px;
@@ -102,6 +104,33 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
+}
+
+#filterPanelOptions {
+  /* flex: 1; */
+}
+
+#submitDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#submit {
+  color: black;
+  padding: 15px;
+  text-decoration: none;
+  background-color: var(--primary_background);
+  border-radius: var(--rounded_radius);
+  transition: 0.5s;
+  width: 95%;
+  height: 95%;
+}
+
+#submit:hover {
+  background-color: var(--tertiary_background);
+  width: 100%;
+  height: 100%;
 }
 
 input {

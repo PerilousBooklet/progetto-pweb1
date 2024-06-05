@@ -42,12 +42,12 @@ body {
   width: 400px;
   height: 400px;
   border-radius: 9999px;
-  position: absolute;
+  position: relative;
   z-index: -1;
-  inset: -1px;
   animation: one 10s infinite;
   opacity: 0.5;
   filter: blur(90px);
+  /* background-color: black; */
   background-color: var(--main_accent);
 }
 

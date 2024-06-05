@@ -1,29 +1,49 @@
 <?php
 
 // Funzione di apertura verso il database
-function mysqli_database(String $Database) {
-	$username = "iuser";
-	$pasword = "hunter2";
+function mysqli_database(string $Database)
+{
+	$username = "foglienipw@localhost";
+	$pasword = "";
 	//se il sistema è UNIX based, per usare una porta diversa dall 3306 come hostname va inserito l'ip di loopback 127.0.0.1
 	$conn = new mysqli("127.0.0.1", $username, $pasword, $Database);
-	if (!$conn)
-	{
-	die("Connection failed: " . mysqli_connect_error());
+	if (!$conn) {
+		die("Connection failed: " . mysqli_connect_error());
 	}
 	return $conn;
 }
 
 // Funzione di rimozione delle injection, dovrebbe rimuovere la maggior parte delle cose
-function remove_injections(String $string) {
+function remove_injections(string $string)
+{
 	$t = $string;
 	$specChars = array(
-		'!' => '', '"' => '', '&' => '', '\'' => '', '(' => '', ')' => '', '*' => '',
-		'+' => '', '/-' => '', ';' => '', '<' => '', '=' => '', '>' => '', '--' => '',
-		'\\' => '', '_' => '', '`' => '', '|' => '', '/_' => '', '#' => '',
-		'truncate' => '', 'delete' => '', 'update' => '');
+		'!' => '',
+		'"' => '',
+		'&' => '',
+		'\'' => '',
+		'(' => '',
+		')' => '',
+		'*' => '',
+		'+' => '',
+		'/-' => '',
+		';' => '',
+		'<' => '',
+		'=' => '',
+		'>' => '',
+		'--' => '',
+		'\\' => '',
+		'_' => '',
+		'`' => '',
+		'|' => '',
+		'/_' => '',
+		'#' => '',
+		'truncate' => '',
+		'delete' => '',
+		'update' => ''
+	);
 
-	foreach ($specChars as $k => $v)
-	{
+	foreach ($specChars as $k => $v) {
 		$t = str_ireplace($k, $v, $t);
 	}
 
@@ -35,7 +55,8 @@ function remove_injections(String $string) {
 -1 = tabella invalida
 -2 = tabella vuota
 */
-function table_gen(String $nometabella) {
+function table_gen(string $nometabella)
+{
 
 	// NON TOCCARE A MENO CHE NON SAI COSA STAI FACENDO
 	$tabella_regione = array("sigla", "regione");
@@ -55,7 +76,7 @@ function table_gen(String $nometabella) {
 
 
 	// Selezione della tabella sulla quale lavorare
-	switch ($variable) {
+	switch ($nometabella) {
 		case 'Regione':
 			$tabella_default = $tabella_regione;
 			$visualizza_default = $visualizza_regione;
@@ -78,20 +99,19 @@ function table_gen(String $nometabella) {
 			break;
 		default:
 			return -1;
-			break;
 	}
 
 	// Apertura connessione verso il database
 	$conn = mysqli_database($nometabella);
 	// Query di recupero dati dal db
-	$sql = "SELECT * FROM $nometabella";
+	$sql = "SELECT * FROM `" . $nometabella . "`";
 	// Salvo il risultato della query
 	$result = mysqli_query($conn, $sql);
 	// Chuido la connessione con il db
 	mysqli_close($conn);
 
 	// Controllo se la query è vuota
-	if(mysqli_num_rows($result) == 0) {
+	if (mysqli_num_rows($result) == 0) {
 		echo "La tabella e vuota";
 		return -2;
 	}
@@ -101,13 +121,15 @@ function table_gen(String $nometabella) {
 
 	// Header della tabella
 	echo "<thead class=''>";
-	while ($element = $visualizza_default) {
+
+	foreach ($visualizza_default as $element) {
 		echo "<th>$element</th>";
 	}
+
 	echo "</thead>";
 
 	// Stampa delle righe della tabella
-	switch ($variable) {
+	switch ($nometabella) {
 		case 'Regione':
 			while_regione($result);
 			break;
@@ -125,7 +147,6 @@ function table_gen(String $nometabella) {
 			break;
 		default:
 			return -1;
-			break;
 	}
 	echo "</table>";
 }
@@ -134,57 +155,62 @@ function table_gen(String $nometabella) {
 // Funzioni di stampa delle righe
 // Non aggiungere niente sotto queste funzioni
 //
-function while_regione($result) {
-	while($row = mysqli_fetch_assoc($result)) {
+function while_regione($result)
+{
+	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<tr>";
-		echo "<td>".$row["codice"]."</td>";
-		echo "<td>".$row["nome"]."</td>";
+		echo "<td>" . $row["codice"] . "</td>";
+		echo "<td>" . $row["nome"] . "</td>";
 		echo "</tr>";
 	}
 }
 
-function while_provincia($result) {
-	while($row = mysqli_fetch_assoc($result)) {
+function while_provincia($result)
+{
+	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<tr>";
-		echo "<td>".$row["sigla"]."</td>";
-		echo "<td>".$row["regione"]."</td>";
-		echo "<td>".$row["nome"]."</td>";
+		echo "<td>" . $row["sigla"] . "</td>";
+		echo "<td>" . $row["regione"] . "</td>";
+		echo "<td>" . $row["nome"] . "</td>";
 		echo "</tr>";
 	}
 }
 
-function while_comune($result) {
-	while($row = mysqli_fetch_assoc($result)) {
+function while_comune($result)
+{
+	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<tr>";
-		echo "<td>".$row["codice"]."</td>";
-		echo "<td>".$row["provincia"]."</td>";
-		echo "<td>".$row["nome"]."</td>";
+		echo "<td>" . $row["codice"] . "</td>";
+		echo "<td>" . $row["provincia"] . "</td>";
+		echo "<td>" . $row["nome"] . "</td>";
 		echo "</tr>";
 	}
 }
 
-function while_autostrada($result) {
-	while($row = mysqli_fetch_assoc($result)) {
+function while_autostrada($result)
+{
+	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<tr>";
-		echo "<td>".$row["cod_naz"]."</td>";
-		echo "<td>".$row["cod_eu"]."</td>";
-		echo "<td>".$row["nome"]."</td>";
-		echo "<td>".$row["lunghezza"]."</td>";
+		echo "<td>" . $row["cod_naz"] . "</td>";
+		echo "<td>" . $row["cod_eu"] . "</td>";
+		echo "<td>" . $row["nome"] . "</td>";
+		echo "<td>" . $row["lunghezza"] . "</td>";
 		echo "</tr>";
 	}
 }
 
-function while_casello($result) {
-	while($row = mysqli_fetch_assoc($result)) {
+function while_casello($result)
+{
+	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<tr>";
-		echo "<td>".$row["codice"]."</td>";
-		echo "<td>".$row["cod_naz"]."</td>";
-		echo "<td>".$row["comune"]."</td>";
-		echo "<td>".$row["nome"]."</td>";
-		echo "<td>".$row["x"]."</td>";
-		echo "<td>".$row["y"]."</td>";
-		echo "<td>".$row["is_automatico"]."</td>";
-		echo "<td>".$row["data_automazione"]."</td>";
+		echo "<td>" . $row["codice"] . "</td>";
+		echo "<td>" . $row["cod_naz"] . "</td>";
+		echo "<td>" . $row["comune"] . "</td>";
+		echo "<td>" . $row["nome"] . "</td>";
+		echo "<td>" . $row["x"] . "</td>";
+		echo "<td>" . $row["y"] . "</td>";
+		echo "<td>" . $row["is_automatico"] . "</td>";
+		echo "<td>" . $row["data_automazione"] . "</td>";
 		echo "</tr>";
 	}
 }
