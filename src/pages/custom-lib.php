@@ -10,6 +10,10 @@ function mysqli_database(string $Database)
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
+
+	echo "Connessione riuscita<br>";
+	echo $conn->host_info;
+
 	return $conn;
 }
 
@@ -106,6 +110,9 @@ function table_gen(string $nometabella)
 	// Query di recupero dati dal db
 	$sql = "SELECT * FROM `" . $nometabella . "`";
 	// Salvo il risultato della query
+
+	echo $sql . "<br>";
+
 	$result = mysqli_query($conn, $sql);
 	// Chuido la connessione con il db
 	mysqli_close($conn);
