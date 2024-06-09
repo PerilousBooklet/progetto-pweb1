@@ -5,7 +5,8 @@
   --secondary_accent: #7cbefb9d;
   --tertiary_accent: #7cbefb37;
 
-  --border_color: #53acff;
+  --primary_border_color: #53acff;
+  --secondary_border_color: #53acff60;
 
   --primary_background: #ffffff;
   --secondary_background: #d3e9fd;
@@ -43,6 +44,10 @@ body {
   border-radius: var(--rounded_radius);
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   padding: 10px;
   text-align: center;
@@ -53,7 +58,7 @@ header {
 /* NAVBAR RULES */
 #nav {
   background-color: var(--secondary_background);
-  border: 1px solid var(--border_color);
+  border: 1px solid var(--primary_border_color);
   padding: 5px;
   font-size: 15px;
   margin-top: var(--inter_margin);
@@ -83,7 +88,7 @@ nav li a {
 
 nav li a:hover {
   background-color: var(--primary_background);
-  border-radius: 9px; /*  corrisponde visivamente a 15px sui div */
+  border-radius: 9px; /* corrisponde visivamente a 15px sui div */
 }
 
 main {
@@ -98,7 +103,7 @@ main {
   display: flex;
   flex-direction: column;
   background-color: var(--secondary_background);
-  border: 1px solid var(--border_color);
+  border: 1px solid var(--primary_border_color);
   padding: 20px;
   color: black;
   overflow-y: auto;
@@ -106,11 +111,8 @@ main {
   scrollbar-width: thin;
 }
 
-#filterPanelOptions {
-  /* flex: 1; */
-}
-
 #submitDiv {
+  margin-top: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,25 +125,30 @@ main {
   background-color: var(--primary_background);
   border-radius: var(--rounded_radius);
   transition: 0.5s;
-  width: 95%;
-  height: 95%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  transition: 0.5s;
+  font-size: 98%;
 }
 
 #submit:hover {
   background-color: var(--tertiary_background);
-  width: 100%;
-  height: 100%;
+  font-size: 100%;
 }
 
-input {
+.filterOptions {
   border: 1px solid #ccc;
   border-radius: 7px;
+  transition: 0.5s;
+  font-size: 100%;
+  width: 100%;
 }
 
 #queryResult {
   background-color: var(--primary_background);
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
   flex: 1;
   margin-left: var(--inter_margin);
   overflow: auto;
@@ -196,25 +203,74 @@ footer li a:hover {
 }
 
 /* Stile della tabella */
-.table {
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* border: 1px solid; */
 }
 
-.thead {
+th {
+  /* border: 1px solid; */
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 
-.tr {
+tr {
+  /* border: 1px solid; */
+  padding: 5px;
 }
 
-.td {
+td {
+  /* border: 1px solid; */
+  padding: 5px;
 }
 
-.th {
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* <uniquifier>: Use a unique and descriptive class name */
+/* <weight>: Use a value from 400 to 700 */
+.kode-mono-title {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
 }
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
+  #title {
+    font-size: x-large;
+  }
+
   #row {
     flex-direction: column;
+  }
+
+  #nav {
+    display: flex;
+    align-items: center;
   }
 
   #filterPanel {
@@ -228,15 +284,8 @@ footer li a:hover {
     margin-left: 0px;
     width: 100%;
   }
-}
 
-footer {
-}
-
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .navbar a {
-    /* float: none;
-    width: 100%; */
+  footer {
+    font-size: small;
   }
 }
