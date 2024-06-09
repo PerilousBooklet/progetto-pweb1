@@ -1,9 +1,14 @@
 body {
   /* background-image: linear-gradient(to right, #ffffff, black); */
+  overflow: hidden;
 }
 
-#landingPageTitleMain {
-  flex: auto;
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: visible;
+  align-items: center;
 }
 
 #landingPageNav {
@@ -14,41 +19,31 @@ body {
 }
 
 #landingPageTitleDiv {
-  display: flex;
-}
-
-#landingPageTitleInnerDiv {
-  flex: 0.75;
+  flex: 0.6;
 }
 
 #landingPageTitle {
+  /* font-family: "Space Mono", monospace; */
   font-size: 100px;
   color: var(--main_accent);
+  margin-left: 50px;
 }
 
-#landingPageTitleShadow {
-  position: absolute;
-  z-index: -1;
-  content: "";
-  inset: -1px;
-  font-size: 100px;
-  color: var(--main_accent);
-  translate: 0 15%;
-
-  filter: blur(50px) brightness(1.8);
+#ballDiv {
+  flex: 0.4;
 }
 
 .ball {
   width: 400px;
   height: 400px;
   border-radius: 9999px;
-  position: relative;
   z-index: -1;
+  position: relative;
   animation: one 10s infinite;
   opacity: 0.5;
   filter: blur(90px);
-  /* background-color: black; */
   background-color: var(--main_accent);
+  /* background-color: black; */
 }
 
 @keyframes one {
@@ -58,18 +53,48 @@ body {
   }
   25% {
     left: -100px;
-    top: 70px;
+    top: -50px;
   }
   50% {
     left: 20px;
-    top: 150px;
+    top: -90px;
   }
   75% {
     left: 50px;
-    top: 100px;
+    top: -60px;
   }
   100% {
     left: 0px;
     top: 0px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+  }
+
+  #landingPageTitleDiv {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  #landingPageTitle {
+    font-size: 13vw;
+    text-align: center;
+  }
+
+  #landingPageTitle {
+    margin: 0px;
+  }
+  #ballDiv {
+    display: none;
+  }
+
+  footer {
   }
 }
