@@ -65,8 +65,8 @@
 		<!-- Content -->
 		<div id="queryResult" class="roundedElement">
 			<?php
-			  include 'mockUpTable.php';
-			  // table_gen("Autostrada");
+			include 'mockUpTable.php';
+			// table_gen("Autostrada");
 			?>
 		</div>
 

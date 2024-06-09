@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Database Autostrada</title>
+
 	<link rel="stylesheet" href="../css/style.css" />
 
 	<!-- Fonts -->
@@ -30,42 +31,49 @@
 	<main id="row">
 		<!-- Form Menu -->
 		<div id="filterPanel" class="roundedElement">
-			<div id="codiceNazione">
-				<label for="codiceNazione">Codice Nazione</label>
+			<div id="filterPanelOptions">
+				<div id="codiceNazione">
+					<label for="codiceNazione">Codice Nazione</label>
+					<br>
+					<input type="text" class="filterOptions">
+				</div>
+
 				<br>
-				<input type="text">
+
+				<div id="codiceEuropeoAutostrada">
+					<label for="codiceEuropeo">Codice Europeo</label>
+					<br>
+					<input type="text" class="filterOptions">
+				</div>
+
+				<br>
+
+				<div id="nomeAutostrada">
+					<label for="nomeAutostrada">Nome Autostrada</label>
+					<br>
+					<input type="text" class="filterOptions">
+				</div>
+
+				<br>
+
+				<div id="lunghezzaAutostrada">
+					<label for="lunghezzaAutostrada">Lunghezza Autostrada</label>
+					<br>
+					<input type="text" class="filterOptions">
+				</div>
+
 			</div>
 
-			<br>
-
-			<div id="codiceEuropeoAutostrada">
-				<label for="codiceEuropeo">Codice Europeo</label>
-				<br>
-				<input type="text">
-			</div>
-
-			<br>
-
-			<div id="nomeAutostrada">
-				<label for="nomeAutostrada">Nome Autostrada</label>
-				<br>
-				<input type="text">
-			</div>
-
-			<br>
-
-			<div id="lunghezzaAutostrada">
-				<label for="lunghezzaAutostrada">Lunghezza Autostrada</label>
-				<br>
-				<input type="text">
-			</div>
+			<?php
+			include 'submitButton.html';
+			?>
 
 		</div>
 
 		<div id="queryResult" class="roundedElement">
-			<h2>Risultato:</h2>
 			<?php
-			table_gen("Autostrada");
+			include 'mockUpTable.php';
+			// table_gen("Autostrada");
 			?>
 		</div>
 
