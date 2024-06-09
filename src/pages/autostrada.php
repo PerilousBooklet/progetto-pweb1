@@ -3,83 +3,68 @@
 <html lang="it">
 
 <head>
-		eta charset="UTF-8">
-		eta name="viewport" content="width=device-width, initial-scale=1.0">
-		itle>Database Autostrada</title>
-
-		ink rel="stylesheet" href="../css/style.css" />
-
-		-- Fonts -->
-		ink rel="preconnect" href="https://fonts.googleapis.com">
-		ink rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		ink href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-				"stylesheet">
-		ink href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
-
-		-- Icons -->
-		ink rel="icon" href="../icons/road.png" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Autostrada</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" href="../icons/road.png" type="image/x-icon" />
 </head>
 
 <body>
 
-		php
-		clude 'custom-lib.php';
-		clude 'header.html';
-		clude 'nav.html';
-		
+    <?php
+    include 'custom-lib.php';
+    include 'header.html';
+    include 'nav.html';
+    ?>
 
-		ain id="row">
-				 Form Menu -->
-				 id="filterPanel" class="roundedElement">
+    <main id="row">
+        <!-- Form Menu -->
+        <div id="filterPanel" class="roundedElement">
+            <div id="codiceNazione">
+                <label for="codiceNazione">Codice Nazione</label>
+                <br>
+                <input type="text">
+            </div>
 
-						d="filterPanelOptions">
-								"codiceNazione">
-										="codiceNazione">Codice Nazione</label>
-										
-										e="text" class="filterOptions">
-								
+            <br>
 
-								
+            <div id="codiceEuropeoAutostrada">
+                <label for="codiceEuropeo">Codice Europeo</label>
+                <br>
+                <input type="text">
+            </div>
 
-								"codiceEuropeoAutostrada">
-										="codiceEuropeo">Codice Europeo</label>
-										
-										e="text" class="filterOptions">
-								
+            <br>
 
-								
+            <div id="nomeAutostrada">
+                <label for="nomeAutostrada">Nome Autostrada</label>
+                <br>
+                <input type="text">
+            </div>
 
-								"nomeAutostrada">
-										="nomeAutostrada">Nome Autostrada</label>
-										
-										e="text" class="filterOptions">
-								
+            <br>
 
-								
+            <div id="lunghezzaAutostrada">
+                <label for="lunghezzaAutostrada">Lunghezza Autostrada</label>
+                <br>
+                <input type="text">
+            </div>
 
-								"lunghezzaAutostrada">
-										="lunghezzaAutostrada">Lunghezza Autostrada</label>
-										
-										e="text" class="filterOptions">
-								
-						
-						
-						e 'submitButton.html';
-						
-				v>
+        </div>
 
-				 id="queryResult" class="roundedElement">
-						
-						e 'mockUpTable.php';
-						le_gen("Autostrada");
-						
-				v>
+        <div id="queryResult" class="roundedElement">
+            <h2>Risultato:</h2>
+            <?php
+            table_gen("Autostrada");
+            ?>
+        </div>
 
-		</main>
+    </main>
 
-		<?php
-		include 'footer.html';
-		?>
+    <?php
+    include 'footer.html';
+    ?>
 
 </body>
 
