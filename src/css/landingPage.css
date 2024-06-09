@@ -23,7 +23,6 @@ main {
 }
 
 #landingPageTitle {
-  /* font-family: "Space Mono", monospace; */
   font-size: 100px;
   color: var(--main_accent);
   margin-left: 50px;
@@ -43,7 +42,6 @@ main {
   opacity: 0.5;
   filter: blur(90px);
   background-color: var(--main_accent);
-  /* background-color: black; */
 }
 
 @keyframes one {
@@ -93,8 +91,5 @@ main {
   }
   #ballDiv {
     display: none;
-  }
-
-  footer {
   }
 }

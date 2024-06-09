@@ -55,11 +55,6 @@ header {
   color: white;
 }
 
-#title {
-  /* font-family: "Space Mono", monospace; */
-  font-size: xx-large;
-}
-
 /* NAVBAR RULES */
 #nav {
   background-color: var(--secondary_background);
@@ -93,7 +88,7 @@ nav li a {
 
 nav li a:hover {
   background-color: var(--primary_background);
-  border-radius: 9px; /*  corrisponde visivamente a 15px sui div */
+  border-radius: 9px; /* corrisponde visivamente a 15px sui div */
 }
 
 main {
@@ -149,13 +144,6 @@ main {
   transition: 0.5s;
   font-size: 100%;
   width: 100%;
-}
-
-input:hover {
-  /* animation: glow 1s ease-in-out infinite alternate; */
-  /* box-shadow: 0 0 5px var(--secondary_border_color), */
-  /* 0 0 15px var(--secondary_border_color), */
-  /* 0 0 25px var(--secondary_border_color); */
 }
 
 #queryResult {
@@ -219,9 +207,6 @@ table {
   width: 100%;
   border-collapse: collapse;
   /* border: 1px solid; */
-}
-
-thead {
 }
 
 th {
