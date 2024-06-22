@@ -12,8 +12,8 @@ function mysqli_database(string $Database)
 		die("Connection failed: " . mysqli_connect_error());
 	}
 
-	echo "Connessione riuscita<br>";
-	echo $conn->host_info;
+	// echo "Connessione riuscita<br>";
+	// echo $conn->host_info;
 
 	return $conn;
 }
@@ -73,7 +73,7 @@ function table_gen(string $nometabella)
 	$visualizza_comune = array("Codice", "Provincia", "Nome");
 
 	$tabella_autostrada = array("cod_naz", "cod_eu", "nome", "lunghezza");
-	$visualizza_autostrada = array("Codice nazionale", "Codice europeo", "Nome", "Lunghezzaa");
+	$visualizza_autostrada = array("Codice nazionale", "Codice europeo", "Nome", "Lunghezza");
 
 	$tabella_casello = array("codice", "cod_naz", "comune", "nome", "x", "y", "is_automatico", "data_automazione");
 	$visualizza_casello = array("Codice", "Codice nazionale", "Comune", "Nome", "x", "y", "Automatico", "Data automazione");
@@ -112,7 +112,7 @@ function table_gen(string $nometabella)
 
 	// Salvo il risultato della query
 
-	echo "<br>" . $sql . "<br>";
+	// echo "<br>" . $sql . "<br>";
 
 	$result = mysqli_query($conn, $sql);
 	// Chuido la connessione con il db
