@@ -110,8 +110,6 @@ function table_gen(string $nometabella)
 	// Query di recupero dati dal db
 	$sql = "SELECT * FROM `" . $nometabella . "`";
 
-	$sql = remove_injections($sql);
-
 	// Salvo il risultato della query
 
 	echo "<br>" . $sql . "<br>";
