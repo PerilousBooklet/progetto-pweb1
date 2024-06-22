@@ -34,58 +34,58 @@
 			<div id="filterPanelOptions">
 				<div id="nomeCasello">
 					<label for="nomeCasello">Nome Casello</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="coordinataX">
 					<label for="coordinataX">Coordinata X</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="CoordinataY">
 					<label for="CoordinataY">Coordinata Y</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="codiceCasello">
 					<label for="codiceCasello">Codice Casello</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="ComuneCasello">
 					<label for="comuneCasello">Comune Casello</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="tipoCasello">
 					<label for="tipoCasello">Tipo Casello</label>
 
-					<br>
+					<br/>
 
 					<input type="radio" name="casello">
 					<label for="presenziato">Presenziato</label>
 
-					<br>
+					<br/>
 
 					<input type="radio" name="casello">
 					<label for="automatico">Automatico</label>
 
-					<br>
+					<br/>
 
 					<input type="radio" name="casello" checked>
 					<label for="tutti">Tutti</label>
@@ -101,8 +101,7 @@
 
 		<div id="queryResult" class="roundedElement">
 			<?php
-			include 'mockUpTable.php';
-			// table_gen("Autostrada");
+			table_gen("Casello");
 			?>
 		</div>
 

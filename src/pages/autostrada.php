@@ -34,31 +34,31 @@
 			<div id="filterPanelOptions">
 				<div id="codiceNazione">
 					<label for="codiceNazione">Codice Nazione</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="codiceEuropeoAutostrada">
 					<label for="codiceEuropeo">Codice Europeo</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="nomeAutostrada">
 					<label for="nomeAutostrada">Nome Autostrada</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="lunghezzaAutostrada">
 					<label for="lunghezzaAutostrada">Lunghezza Autostrada</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
@@ -72,8 +72,7 @@
 
 		<div id="queryResult" class="roundedElement">
 			<?php
-			include 'mockUpTable.php';
-			// table_gen("Autostrada");
+			table_gen("Autostrada");
 			?>
 		</div>
 

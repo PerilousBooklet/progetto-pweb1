@@ -35,23 +35,23 @@
 			<div id="filterPanelOptions">
 				<div id="codiceComune">
 					<label for="codiceComune">Codice Comune</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="provinciaComune">
 					<label for="provinciaComune">Provincia Comune</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 
-				<br>
+				<br/>
 
 				<div id="nomeComune">
 					<label for="nomeComune">Nome Comune</label>
-					<br>
+					<br/>
 					<input type="text" class="filterOptions">
 				</div>
 			</div>
@@ -65,8 +65,7 @@
 		<!-- Content -->
 		<div id="queryResult" class="roundedElement">
 			<?php
-			include 'mockUpTable.php';
-			// table_gen("Autostrada");
+			table_gen("Comune");
 			?>
 		</div>
 
