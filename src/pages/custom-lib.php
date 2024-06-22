@@ -29,7 +29,6 @@ function remove_injections(string $string)
 		'\'' => '',
 		'(' => '',
 		')' => '',
-		'*' => '',
 		'+' => '',
 		'/-' => '',
 		';' => '',
