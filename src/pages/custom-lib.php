@@ -3,10 +3,11 @@
 // Funzione di apertura verso il database
 function mysqli_database(string $Database)
 {
-	$username = "foglienipw@localhost";
+	$username = "foglienipw";
 	$pasword = "";
+	$Database = "my_foglienipw";
 	//se il sistema è UNIX based, per usare una porta diversa dall 3306 come hostname va inserito l'ip di loopback 127.0.0.1
-	$conn = new mysqli("127.0.0.1", $username, $pasword, $Database);
+	$conn = new mysqli("localhost", $username, $pasword, $Database);
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
@@ -109,9 +110,12 @@ function table_gen(string $nometabella)
 	$conn = mysqli_database($nometabella);
 	// Query di recupero dati dal db
 	$sql = "SELECT * FROM `" . $nometabella . "`";
+
+	$sql = remove_injections($sql);
+
 	// Salvo il risultato della query
 
-	echo $sql . "<br>";
+	echo "<br>" . $sql . "<br>";
 
 	$result = mysqli_query($conn, $sql);
 	// Chuido la connessione con il db
