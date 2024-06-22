@@ -3,16 +3,17 @@
 // Funzione di apertura verso il database
 function mysqli_database(string $Database)
 {
-	$username = "foglienipw@localhost";
+	$username = "foglienipw";
 	$pasword = "";
+	$Database = "my_foglienipw";
 	//se il sistema è UNIX based, per usare una porta diversa dall 3306 come hostname va inserito l'ip di loopback 127.0.0.1
-	$conn = new mysqli("127.0.0.1", $username, $pasword, $Database);
+	$conn = new mysqli("localhost", $username, $pasword, $Database);
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
 
-	echo "Connessione riuscita<br>";
-	echo $conn->host_info;
+	// echo "Connessione riuscita<br>";
+	// echo $conn->host_info;
 
 	return $conn;
 }
@@ -28,7 +29,6 @@ function remove_injections(string $string)
 		'\'' => '',
 		'(' => '',
 		')' => '',
-		'*' => '',
 		'+' => '',
 		'/-' => '',
 		';' => '',
@@ -73,7 +73,7 @@ function table_gen(string $nometabella)
 	$visualizza_comune = array("Codice", "Provincia", "Nome");
 
 	$tabella_autostrada = array("cod_naz", "cod_eu", "nome", "lunghezza");
-	$visualizza_autostrada = array("Codice nazionale", "Codice europeo", "Nome", "Lunghezzaa");
+	$visualizza_autostrada = array("Codice nazionale", "Codice europeo", "Nome", "Lunghezza");
 
 	$tabella_casello = array("codice", "cod_naz", "comune", "nome", "x", "y", "is_automatico", "data_automazione");
 	$visualizza_casello = array("Codice", "Codice nazionale", "Comune", "Nome", "x", "y", "Automatico", "Data automazione");
@@ -109,9 +109,10 @@ function table_gen(string $nometabella)
 	$conn = mysqli_database($nometabella);
 	// Query di recupero dati dal db
 	$sql = "SELECT * FROM `" . $nometabella . "`";
+
 	// Salvo il risultato della query
 
-	echo $sql . "<br>";
+	// echo "<br>" . $sql . "<br>";
 
 	$result = mysqli_query($conn, $sql);
 	// Chuido la connessione con il db
