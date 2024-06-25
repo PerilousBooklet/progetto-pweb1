@@ -80,7 +80,7 @@ function table_gen(string $nometabella)
 	// Apertura connessione verso il database
 	$conn = mysqli_database($nometabella);
 	// Query di recupero dati dal db
-	$sql = "SELECT * FROM `:$nometabella`";
+	$sql = "SELECT * FROM `$nometabella`";
 
 	$stmt = $conn->query($sql);
 
