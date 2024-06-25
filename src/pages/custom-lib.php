@@ -13,7 +13,7 @@ function mysqli_database(string $Database)
 		$conn = new PDO($dsn, $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
 		if ($conn) {
-			echo "Connected to the $Database database successfully!";
+			//echo "Connected to the $Database database successfully!";
 		}
 	} catch (PDOException $e) {
 		echo $e->getMessage();
@@ -183,6 +183,13 @@ function while_autostrada($result)
 function while_casello($result)
 {
 	foreach ($result as $row) {
+
+		if ($row["is_automatico"] == 0) {
+			$row["is_automatico"] = "No";
+		} else {
+			$row["is_automatico"] = "Si";
+		}
+
 		echo "<tr>";
 		echo "<td>" . $row["codice"] . "</td>";
 		echo "<td>" . $row["cod_naz"] . "</td>";
