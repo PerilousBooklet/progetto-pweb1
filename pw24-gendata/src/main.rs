@@ -278,7 +278,7 @@ fn fill_autostrade() -> Vec<Audostrada> {
 			cod_eu: format!("E{}", element),
 			nome: format!("A{}-E{}", element, element),
 			lunghezza: rng.gen()
-		};z
+		};
 
 		autostrade_list.push(record);
 	}
@@ -308,6 +308,9 @@ fn fill_caselli(autostrade_list:&Vec<Audostrada>, comuni_list:&Vec<Comune>) -> V
 		if record.is_automatico {
 			let data:String = Date().fake();
 			record.data_automazione = format!("{:?}", data);
+		}
+		else {
+			record.data_automazione = "\"\"".to_string();
 		}
 
 		caselli_list.push(record);
