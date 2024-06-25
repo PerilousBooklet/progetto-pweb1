@@ -6,10 +6,17 @@ function mysqli_database(string $Database)
 	$username = "foglienipw";
 	$pasword = "";
 	$Database = "my_foglienipw";
-	//se il sistema è UNIX based, per usare una porta diversa dall 3306 come hostname va inserito l'ip di loopback 127.0.0.1
-	$conn = new mysqli("localhost", $username, $pasword, $Database);
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
+	
+	$dsn = "mysql:host=localhost;dbname=$Database;charset=UTF8";
+
+	try {
+		$conn = new PDO($dsn, $user, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
+		if ($pdo) {
+			echo "Connected to the $Database database successfully!";
+		}
+	} catch (PDOException $e) {
+		echo $e->getMessage();
 	}
 
 	// echo "Connessione riuscita<br>";
@@ -18,38 +25,6 @@ function mysqli_database(string $Database)
 	return $conn;
 }
 
-// Funzione di rimozione delle injection, dovrebbe rimuovere la maggior parte delle cose
-function remove_injections(string $string)
-{
-	$t = $string;
-	$specChars = array(
-		'!' => '',
-		'"' => '',
-		'&' => '',
-		'\'' => '',
-		'(' => '',
-		')' => '',
-		'+' => '',
-		'/-' => '',
-		';' => '',
-		'<' => '',
-		'=' => '',
-		'>' => '',
-		'--' => '',
-		'\\' => '',
-		'_' => '',
-		'`' => '',
-		'|' => '',
-		'/_' => '',
-		'#' => '',
-	);
-
-	foreach ($specChars as $k => $v) {
-		$t = str_ireplace($k, $v, $t);
-	}
-
-	return $t;
-}
 
 /*
 0 = successo
@@ -99,26 +74,25 @@ function table_gen(string $nometabella)
 			$visualizza_default = $visualizza_casello;
 			break;
 		default:
-			return -1;
+			return;
 	}
 
 	// Apertura connessione verso il database
 	$conn = mysqli_database($nometabella);
 	// Query di recupero dati dal db
-	$sql = "SELECT * FROM `" . $nometabella . "`";
+	$sql = "SELECT * FROM `:nometabella`";
 
-	// Salvo il risultato della query
+	$stmt = $conn->prepare($sql);
 
-	// echo "<br>" . $sql . "<br>";
+	$stmt->execute([
+		":nometabella" => $nometabella
+	]);
 
-	$result = mysqli_query($conn, $sql);
-	// Chuido la connessione con il db
-	mysqli_close($conn);
+	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	// Controllo se la query è vuota
-	if (mysqli_num_rows($result) == 0) {
-		echo "La tabella e vuota";
-		return -2;
+	if(empty(array_filter($result))) {
+		echo "Tabella vuota";
+		return;
 	}
 
 	// INIZIO STAMPA DELLA TABELLA
@@ -151,9 +125,15 @@ function table_gen(string $nometabella)
 			while_casello($result);
 			break;
 		default:
-			return -1;
+			return;
 	}
 	echo "</table>";
+
+	// Chuido la connessione con il db
+	$stmt = null;
+	$conn = null;
+
+	return;
 }
 
 //
@@ -162,7 +142,7 @@ function table_gen(string $nometabella)
 //
 function while_regione($result)
 {
-	while ($row = mysqli_fetch_assoc($result)) {
+	foreach ($result as $row) {
 		echo "<tr>";
 		echo "<td>" . $row["codice"] . "</td>";
 		echo "<td>" . $row["nome"] . "</td>";
@@ -172,7 +152,7 @@ function while_regione($result)
 
 function while_provincia($result)
 {
-	while ($row = mysqli_fetch_assoc($result)) {
+	foreach ($result as $row) {
 		echo "<tr>";
 		echo "<td>" . $row["sigla"] . "</td>";
 		echo "<td>" . $row["regione"] . "</td>";
@@ -183,7 +163,7 @@ function while_provincia($result)
 
 function while_comune($result)
 {
-	while ($row = mysqli_fetch_assoc($result)) {
+	foreach ($result as $row) {
 		echo "<tr>";
 		echo "<td>" . $row["codice"] . "</td>";
 		echo "<td>" . $row["provincia"] . "</td>";
@@ -194,7 +174,7 @@ function while_comune($result)
 
 function while_autostrada($result)
 {
-	while ($row = mysqli_fetch_assoc($result)) {
+	foreach ($result as $row) {
 		echo "<tr>";
 		echo "<td>" . $row["cod_naz"] . "</td>";
 		echo "<td>" . $row["cod_eu"] . "</td>";
@@ -206,7 +186,7 @@ function while_autostrada($result)
 
 function while_casello($result)
 {
-	while ($row = mysqli_fetch_assoc($result)) {
+	foreach ($result as $row) {
 		echo "<tr>";
 		echo "<td>" . $row["codice"] . "</td>";
 		echo "<td>" . $row["cod_naz"] . "</td>";
