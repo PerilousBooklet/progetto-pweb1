@@ -4,15 +4,15 @@
 function mysqli_database(string $Database)
 {
 	$username = "foglienipw";
-	$pasword = "";
+	$password = "";
 	$Database = "my_foglienipw";
 	
 	$dsn = "mysql:host=localhost;dbname=$Database;charset=UTF8";
 
 	try {
-		$conn = new PDO($dsn, $user, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+		$conn = new PDO($dsn, $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-		if ($pdo) {
+		if ($conn) {
 			echo "Connected to the $Database database successfully!";
 		}
 	} catch (PDOException $e) {
@@ -80,13 +80,9 @@ function table_gen(string $nometabella)
 	// Apertura connessione verso il database
 	$conn = mysqli_database($nometabella);
 	// Query di recupero dati dal db
-	$sql = "SELECT * FROM `:nometabella`";
+	$sql = "SELECT * FROM `:$nometabella`";
 
-	$stmt = $conn->prepare($sql);
-
-	$stmt->execute([
-		":nometabella" => $nometabella
-	]);
+	$stmt = $conn->query($sql);
 
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
