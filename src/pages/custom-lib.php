@@ -42,9 +42,6 @@ function remove_injections(string $string)
 		'|' => '',
 		'/_' => '',
 		'#' => '',
-		'truncate' => '',
-		'delete' => '',
-		'update' => ''
 	);
 
 	foreach ($specChars as $k => $v) {
