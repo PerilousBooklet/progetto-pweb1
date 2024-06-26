@@ -280,7 +280,7 @@ function aggiornamento(String $tabella, Array $data_array) {
 
 	switch ($tabella) {
 		case 'Comune':
-			$sql = "$sql_starter `provincia` = :provincia, `nome` :nome WHERE `codice` = :codice";
+			$sql = "$sql_starter `provincia` = :provincia, `nome` = :nome WHERE `codice` = :codice";
 			break;
 		case 'Autostrada':
 			$sql = "$sql_starter `cod_eu` = :cod_eu, `nome` = :nome, `lunghezza` = :lunghezza WHERE `cod_naz` = :cod_naz";
