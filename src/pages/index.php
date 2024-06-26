@@ -35,9 +35,9 @@
       <div class="ball"></div>
     </div>
   </main>
-  
+
   <?php
-  include 'footer.html';
+  include 'modules/footer.html';
   ?>
 
 </body>

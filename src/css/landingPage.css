@@ -23,9 +23,10 @@ main {
 }
 
 #landingPageTitle {
-  font-size: 100px;
+  font-size: 8vw;
   color: var(--main_accent);
   margin-left: 50px;
+  margin-right: 200px;
 }
 
 #ballDiv {
@@ -33,14 +34,14 @@ main {
 }
 
 .ball {
-  width: 400px;
-  height: 400px;
+  width: 25vw;
+  height: 25vw;
   border-radius: 9999px;
   z-index: -1;
   position: relative;
   animation: one 10s infinite;
   opacity: 0.5;
-  filter: blur(90px);
+  filter: blur(5vw);
   background-color: var(--main_accent);
 }
 

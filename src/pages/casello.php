@@ -18,97 +18,114 @@
 
 	<!-- Icons -->
 	<link rel="icon" href="../icons/road.png" type="image/x-icon" />
+
+	<!-- Scripts -->
+	<script src="../libraries/jquery-3.7.1.min.js"></script>
+
+	<script src="../scripts/editRowUI.js"></script>
 </head>
 
 <body>
 
 	<?php
 	include 'custom-lib.php';
-	include 'header.html';
-	include 'nav.html';
+	include 'modules/header.html';
+	include 'modules/nav.html';
+	include 'modules/editUICasello.html';
 	?>
 
-	<main id="row">
-		<!-- Form Menu -->
-		<div id="filterPanel" class="roundedElement">
-			<div id="filterPanelOptions">
-				<div id="nomeCasello">
-					<label for="nomeCasello">Nome Casello</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
+	<dialog id="editDialog" class="roundedElement">
 
-				<br/>
+		<h2>Modifica</h2>
 
-				<div id="coordinataX">
-					<label for="coordinataX">Coordinata X</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
+		<form id="updateForm" action="" method="POST">
+			<?php
+			include 'modules/optionListCasello.html';
+			?>
 
-				<br/>
+			<div class="filterOption">
+				<label for="automatico">Automatico</label>
+				<input type="checkbox" name="is_automatico" id="input-automatico" />
+			</div>
 
-				<div id="CoordinataY">
-					<label for="CoordinataY">Coordinata Y</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
-
-				<br/>
-
-				<div id="codiceCasello">
-					<label for="codiceCasello">Codice Casello</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
-
-				<br/>
-
-				<div id="ComuneCasello">
-					<label for="comuneCasello">Comune Casello</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
-
-				<br/>
-
-				<div id="tipoCasello">
-					<label for="tipoCasello">Tipo Casello</label>
-
-					<br/>
-
-					<input type="radio" name="casello">
-					<label for="presenziato">Presenziato</label>
-
-					<br/>
-
-					<input type="radio" name="casello">
-					<label for="automatico">Automatico</label>
-
-					<br/>
-
-					<input type="radio" name="casello" checked>
-					<label for="tutti">Tutti</label>
-
-				</div>
+			<div class="filterOption">
+				<label for="data">Data</label>
+				<input type="data_automazione" name="data" id="input-data" />
 			</div>
 
 			<?php
-			include 'submitButton.html';
+			include 'modules/editButtons.html';
 			?>
 
-		</div>
+		</form>
+
+	</dialog>
+
+	<main id="row">
+		<!-- Form Menu -->
+		<form class="filterPanel roundedElement">
+
+			<div id="filterPanelOptions">
+
+				<h2>Ricerca</h2>
+
+				<div class="filterOption">
+
+					<label for="IDCasello">ID</label>
+
+					<br />
+
+					<input type="text" placeholder="ID" class="filterInput">
+
+				</div>
+
+				<?php
+				include 'modules/optionListCasello.html';
+				?>
+
+				<div class="filterOption">
+
+					<label for="tipoCasello">Tipo Casello</label>
+
+					<br />
+
+					<input type="radio" name="casello">
+
+					<label for="presenziato">Presenziato</label>
+
+					<br />
+
+					<input type="radio" name="casello">
+
+					<label for="automatico">Automatico</label>
+
+					<br />
+
+					<input type="radio" name="casello" checked>
+
+					<label for="tutti">Tutti</label>
+
+				</div>
+
+			</div>
+
+			<?php
+			include 'modules/searchButtons.html';
+			?>
+
+		</form>
 
 		<div id="queryResult" class="roundedElement">
 			<?php
 			table_gen("Casello");
+			// include 'modules/mockUpTable.php';
 			?>
 		</div>
 
 	</main>
 
 	<?php
-	include 'footer.html';
+	include 'modules/footer.html';
 	?>
 
 </body>

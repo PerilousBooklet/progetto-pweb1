@@ -18,61 +18,77 @@
 
 	<!-- Icons -->
 	<link rel="icon" href="../icons/road.png" type="image/x-icon" />
+
+	<!-- Scripts -->
+	<script src="../libraries/jquery-3.7.1.min.js"></script>
+
+	<script src="../scripts/editRowUI.js"></script>
 </head>
 
 <body>
 
 	<?php
 	include 'custom-lib.php';
-	include 'header.html';
-	include 'nav.html';
+	include 'modules/header.html';
+	include 'modules/nav.html';
 	?>
+
+	<dialog id="editDialog" class="roundedElement">
+
+		<h2>Modifica</h2>
+
+		<form id="updateForm">
+
+			<?php
+			include 'modules/optionListComune.html';
+			?>
+
+			<?php
+			include 'modules/editButtons.html';
+			?>
+
+		</form>
+
+	</dialog>
 
 	<!-- Row -->
 	<main id="row">
 		<!-- Form Menu -->
-		<div id="filterPanel" class="roundedElement">
+		<form class="filterPanel roundedElement" action="" method="POST">
 			<div id="filterPanelOptions">
-				<div id="codiceComune">
+
+				<h2>Ricerca</h2>
+
+				<div class="filterOption">
 					<label for="codiceComune">Codice Comune</label>
-					<br/>
-					<input type="text" class="filterOptions">
+					<br />
+					<input type="text" name="codice" placeholder="ID comune" class="filterInput">
 				</div>
 
-				<br/>
+				<?php
+				include 'modules/optionListComune.html';
+				?>
 
-				<div id="provinciaComune">
-					<label for="provinciaComune">Provincia Comune</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
-
-				<br/>
-
-				<div id="nomeComune">
-					<label for="nomeComune">Nome Comune</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
 			</div>
 
 			<?php
-			include 'submitButton.html';
+			include 'modules/searchButtons.html';
 			?>
 
-		</div>
+		</form>
 
 		<!-- Content -->
 		<div id="queryResult" class="roundedElement">
 			<?php
 			table_gen("Comune");
+			// include 'modules/mockUpTable.php';
 			?>
 		</div>
 
 	</main>
 
 	<?php
-	include 'footer.html';
+	include 'modules/footer.html';
 	?>
 
 </body>

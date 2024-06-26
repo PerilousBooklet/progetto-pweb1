@@ -18,68 +18,75 @@
 
 	<!-- Icons -->
 	<link rel="icon" href="../icons/road.png" type="image/x-icon" />
+
+	<!-- Scripts -->
+	<script src="../libraries/jquery-3.7.1.min.js"></script>
+
+	<script src="../scripts/editRowUI.js"></script>
 </head>
 
 <body>
 
 	<?php
 	include 'custom-lib.php';
-	include 'header.html';
-	include 'nav.html';
+	include 'modules/header.html';
+	include 'modules/nav.html';
 	?>
+
+	<dialog id="editDialog" class="roundedElement">
+
+		<h2>Modifica</h2>
+
+		<form id="updateForm">
+
+			<?php
+			include 'modules/optionListAutostrada.html';
+			?>
+
+			<?php
+			include 'modules/editButtons.html';
+			?>
+
+		</form>
+
+	</dialog>
 
 	<main id="row">
 		<!-- Form Menu -->
-		<div id="filterPanel" class="roundedElement">
+		<form class="filterPanel roundedElement" action="" method="POST">
 			<div id="filterPanelOptions">
-				<div id="codiceNazione">
+
+				<h2>Ricerca</h2>
+
+				<div class="filterOption">
 					<label for="codiceNazione">Codice Nazione</label>
-					<br/>
-					<input type="text" class="filterOptions">
+					<br />
+					<input type="text" name="codiceNazione" placeholder="ID nazione" class="filterInput">
 				</div>
 
-				<br/>
-
-				<div id="codiceEuropeoAutostrada">
-					<label for="codiceEuropeo">Codice Europeo</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
-
-				<br/>
-
-				<div id="nomeAutostrada">
-					<label for="nomeAutostrada">Nome Autostrada</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
-
-				<br/>
-
-				<div id="lunghezzaAutostrada">
-					<label for="lunghezzaAutostrada">Lunghezza Autostrada</label>
-					<br/>
-					<input type="text" class="filterOptions">
-				</div>
+				<?php
+				include 'modules/optionListAutostrada.html';
+				?>
 
 			</div>
 
 			<?php
-			include 'submitButton.html';
+			include 'modules/searchButtons.html';
 			?>
 
-		</div>
+		</form>
 
 		<div id="queryResult" class="roundedElement">
 			<?php
 			table_gen("Autostrada");
+			// include 'modules/mockUpTable.php';
 			?>
 		</div>
 
 	</main>
 
 	<?php
-	include 'footer.html';
+	include 'modules/footer.html';
 	?>
 
 </body>
