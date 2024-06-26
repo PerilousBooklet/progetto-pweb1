@@ -1,13 +1,14 @@
 <?php
 
 // Funzione di apertura verso il database
-function mysqli_database(string $Database)
+function database_connection(string $Database)
 {
 	$username = "foglienipw";
 	$password = "";
 	$Database = "my_foglienipw";
+	$host = "localhost";
 	
-	$dsn = "mysql:host=localhost;dbname=$Database;charset=UTF8";
+	$dsn = "mysql:host=$host;dbname=$Database;charset=UTF8";
 
 	try {
 		$conn = new PDO($dsn, $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -78,7 +79,7 @@ function table_gen(string $nometabella)
 	}
 
 	// Apertura connessione verso il database
-	$conn = mysqli_database($nometabella);
+	$conn = database_connection($nometabella);
 	// Query di recupero dati dal db
 	$sql = "SELECT * FROM `$nometabella`";
 
