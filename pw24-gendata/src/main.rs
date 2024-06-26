@@ -61,10 +61,10 @@ struct Casello {
 	codice: u32,
 	codice_comune: String,
 	nome: String,
-	x: f64,
-	y: f64,
+	x: f32,
+	y: f32,
 	cod_naz: String,
-	is_automatico: bool,
+	is_automatico: u8,
 	data_automazione: String,
 }
 
@@ -73,7 +73,7 @@ struct Audostrada {
 	cod_naz: String,
 	cod_eu: String,
 	nome: String,
-	lunghezza: u32,
+	lunghezza: i32,
 }
 
 
@@ -111,11 +111,11 @@ fn main() {
 	//
 
 	// scrittura di caselli_list
-	let mut caselli_writer = File::create("./output/caselli_list.csv").unwrap();
-	writeln!(caselli_writer, "codice,nome,x,y,cod_naz,is_automatico,data_automazione").unwrap();
+	let mut caselli_writer = File::create("./output/caselli_list.sql").unwrap();
+	//writeln!(caselli_writer, "codice,nome,x,y,cod_naz,is_automatico,data_automazione").unwrap();
 	// println!("\nStampa di caselli_list");
 	for record in caselli_list {
-		writeln!(caselli_writer, "{},{},{},{},{},{},{}", record.codice, record.nome, record.x, record.y, record.cod_naz, record.is_automatico, record.data_automazione).unwrap();
+		writeln!(caselli_writer, "INSERT INTO Casello (codice, nome, x, y, cod_naz, is_automatico, data_automazione, comune) VALUES ('{}', '{}', '{}', '{}', '{}', {}, {}, '{}');", record.codice, record.nome, record.x, record.y, record.cod_naz, record.is_automatico, record.data_automazione, record.codice_comune).unwrap();
 	}
 
 	// Scrittura autostrade_list
@@ -273,12 +273,15 @@ fn fill_autostrade() -> Vec<Audostrada> {
 
 	// Genera dati
 	for element in 1..=100 {
+
+		let lunghezza_temp:i32 = rng.gen();
+		
 		let record: Audostrada = Audostrada {
 			cod_naz: format!("A{}", element),
 			cod_eu: format!("E{}", element),
 			nome: format!("A{}-E{}", element, element),
-			lunghezza: rng.gen()
-		};z
+			lunghezza: lunghezza_temp.abs()
+		};
 
 		autostrade_list.push(record);
 	}
@@ -298,16 +301,19 @@ fn fill_caselli(autostrade_list:&Vec<Audostrada>, comuni_list:&Vec<Comune>) -> V
 			codice: element,
 			nome: format!("{}", element),
 			codice_comune: comuni_list.choose(&mut rng).unwrap().codice.clone(),
-			x: 10000.0 * (rng.gen::<f64>() - 0.5),
-			y: 10000.0 * (rng.gen::<f64>() - 0.5),
+			x: 10000.0 * (rng.gen::<f32>() - 0.5),
+			y: 10000.0 * (rng.gen::<f32>() - 0.5),
 			cod_naz: autostrade_list.choose(&mut rng).unwrap().cod_naz.clone(),
-			is_automatico: rng.gen_bool(0.5),
+			is_automatico: rng.gen_bool(0.5) as u8,
 			data_automazione: "".to_string(),
 		};
 
-		if record.is_automatico {
+		if record.is_automatico != 0 {
 			let data:String = Date().fake();
 			record.data_automazione = format!("{:?}", data);
+		}
+		else {
+			record.data_automazione = "NULL".to_string();
 		}
 
 		caselli_list.push(record);
