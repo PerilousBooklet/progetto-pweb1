@@ -3,6 +3,11 @@
 // Funzione di apertura verso il database
 function database_connection(string $Database)
 {
+	database_connection_v2();
+}
+
+//                           ↓ ultrakill reference
+function database_connection_v2() {
 	$username = "foglienipw";
 	$password = "";
 	$Database = "my_foglienipw";
@@ -20,21 +25,47 @@ function database_connection(string $Database)
 		echo $e->getMessage();
 	}
 
-	// echo "Connessione riuscita<br>";
-	// echo $conn->host_info;
-
 	return $conn;
 }
-
 
 /*
 0 = successo
 -1 = tabella invalida
 -2 = tabella vuota
 */
-function table_gen(string $nometabella)
+function table_gen(String $tabella)
 {
+	if (empty($_POST)) {
+		print_no_search($tabella, true);
+	} else {
+		print_no_search($tabella, false);
+	}
 
+	return;
+}
+
+function print_yes_search(String $tabella) {
+
+	$sql_starter = "SELECT * FROM $tabella WHERE";
+
+	switch ($tabella) {
+		case 'Comune':
+			$sql = "$sql_starter `nome` LIKE :nome AND `codice` LIKE :codice AND `provincia` LIKE :provincia";
+			break;
+		case 'Autostrada':
+			$sql = "$sql_starter `cod_naz` LIKE :cod_naz AND `cod_eu` LIKE :cod_eu AND `nome` LIKE :nome AND `lunghezza` LIKE :lunghezza";
+			break;
+		case 'Casello':
+			$sql = "$sql_starter `cod_naz` LIKE :cod_naz AND `comune` LIKE :comune AND `nome` LIKE :nome AND `x` = LIKE :x AND `y` LIKE :y AND `is_automatico` LIKE :is_automatico AND `data_automazione` LIKE :data_automazione AND `codice` LIKE :codice";
+			break;
+		default:
+			return;
+	}
+
+	return $sql;
+}
+
+function print_no_search(String $tabella, bool $is_search) {
 	// NON TOCCARE A MENO CHE NON SAI COSA STAI FACENDO
 	$tabella_regione = array("sigla", "regione");
 	$visualizza_regione = array("Sigla", "Regione");
@@ -53,7 +84,7 @@ function table_gen(string $nometabella)
 
 
 	// Selezione della tabella sulla quale lavorare
-	switch ($nometabella) {
+	switch ($tabella) {
 		case 'Regione':
 			$tabella_default = $tabella_regione;
 			$visualizza_default = $visualizza_regione;
@@ -79,11 +110,20 @@ function table_gen(string $nometabella)
 	}
 
 	// Apertura connessione verso il database
-	$conn = database_connection($nometabella);
+	$conn = database_connection_v2();
 	// Query di recupero dati dal db
-	$sql = "SELECT * FROM `$nometabella`";
 
-	$stmt = $conn->query($sql);
+	if (!$is_search) {
+		$sql = print_yes_search($tabella);
+		$stmt = $conn->prepare($sql);
+
+		$data_array = $_POST;
+
+		$stmt->execute($data_array);
+	} else {
+		$sql = "SELECT * FROM `$tabella`";
+		$stmt = $conn->query($sql);
+	}
 
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -96,16 +136,16 @@ function table_gen(string $nometabella)
 	echo "<table class=''>";
 
 	// Header della tabella
-	echo "<thead class=''>";
+	echo "<thead class='rs-head'>";
 
 	foreach ($visualizza_default as $element) {
-		echo "<th>$element</th>";
+		echo "<th class='rs-header'>$element</th>";
 	}
 
 	echo "</thead>";
 
 	// Stampa delle righe della tabella
-	switch ($nometabella) {
+	switch ($tabella) {
 		case 'Regione':
 			while_regione($result);
 			break;
@@ -140,9 +180,9 @@ function table_gen(string $nometabella)
 function while_regione($result)
 {
 	foreach ($result as $row) {
-		echo "<tr>";
-		echo "<td>" . $row["codice"] . "</td>";
-		echo "<td>" . $row["nome"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["codice"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
 		echo "</tr>";
 	}
 }
@@ -150,10 +190,10 @@ function while_regione($result)
 function while_provincia($result)
 {
 	foreach ($result as $row) {
-		echo "<tr>";
-		echo "<td>" . $row["sigla"] . "</td>";
-		echo "<td>" . $row["regione"] . "</td>";
-		echo "<td>" . $row["nome"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["sigla"] . "</td>";
+		echo "<td class='rs-data'>" . $row["regione"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
 		echo "</tr>";
 	}
 }
@@ -161,10 +201,10 @@ function while_provincia($result)
 function while_comune($result)
 {
 	foreach ($result as $row) {
-		echo "<tr>";
-		echo "<td>" . $row["codice"] . "</td>";
-		echo "<td>" . $row["provincia"] . "</td>";
-		echo "<td>" . $row["nome"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["codice"] . "</td>";
+		echo "<td class='rs-data'>" . $row["provincia"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
 		echo "</tr>";
 	}
 }
@@ -172,11 +212,11 @@ function while_comune($result)
 function while_autostrada($result)
 {
 	foreach ($result as $row) {
-		echo "<tr>";
-		echo "<td>" . $row["cod_naz"] . "</td>";
-		echo "<td>" . $row["cod_eu"] . "</td>";
-		echo "<td>" . $row["nome"] . "</td>";
-		echo "<td>" . $row["lunghezza"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["cod_naz"] . "</td>";
+		echo "<td class='rs-data'>" . $row["cod_eu"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
+		echo "<td class='rs-data'>" . $row["lunghezza"] . "</td>";
 		echo "</tr>";
 	}
 }
@@ -191,17 +231,152 @@ function while_casello($result)
 			$row["is_automatico"] = "Si";
 		}
 
-		echo "<tr>";
-		echo "<td>" . $row["codice"] . "</td>";
-		echo "<td>" . $row["cod_naz"] . "</td>";
-		echo "<td>" . $row["comune"] . "</td>";
-		echo "<td>" . $row["nome"] . "</td>";
-		echo "<td>" . $row["x"] . "</td>";
-		echo "<td>" . $row["y"] . "</td>";
-		echo "<td>" . $row["is_automatico"] . "</td>";
-		echo "<td>" . $row["data_automazione"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["codice"] . "</td>";
+		echo "<td class='rs-data'>" . $row["cod_naz"] . "</td>";
+		echo "<td class='rs-data'>" . $row["comune"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
+		echo "<td class='rs-data'>" . $row["x"] . "</td>";
+		echo "<td class='rs-data'>" . $row["y"] . "</td>";
+		echo "<td class='rs-data'>" . $row["is_automatico"] . "</td>";
+		echo "<td class='rs-data'>" . $row["data_automazione"] . "</td>";
 		echo "</tr>";
 	}
 }
 
+//
+// Funzioni CRUD
+//
+
+function api() {
+
+	$jeson = file_get_contents("php://input");
+
+	$jeson_decoded = json_decode($jeson, true);
+
+	$tabella = $jeson_decoded["tabella"];
+
+	$lista_tabelle = ["Casello", "Comune", "Autostrada"];
+
+	if (!in_array($tabella, $lista_tabelle)) {
+		return;
+	}
+
+	unset($jeson_decoded["tabella"]);
+
+	$operazione = $jeson_decoded["operazione"];
+	unset($jeson_decoded["operazione"]);
+
+	switch ($operazione) {
+		case 'rm':
+			rimozione($tabella, $jeson_decoded);
+			break;
+		case 'upd':
+			aggiornamento($tabella, $jeson_decoded);
+			break;
+		case 'ins':
+			inserimento($tabella, $jeson_decoded);
+			break;
+		default:
+			return;
+	}
+
+	
+}
+
+// RIMOZIONE
+function rimozione(String $tabella, Array $data_array) {
+
+	$sql_starter = "DELETE FROM $tabella WHERE";
+
+	switch ($tabella) {
+		case 'Comune':
+			$sql = "$sql_starter `codice` = :codice";
+			break;
+		case 'Autostrada':
+			$sql = "$sql_starter `cod_naz` = :cod_naz";
+			break;
+		case 'Casello':
+			$sql = "$sql_starter `codice` = :codice";
+			break;
+		default:
+			return;
+	}
+
+	// Esecuzione query
+	$conn = database_connection_v2();
+
+	$stmt = $conn->prepare($sql);
+
+	$stmt->execute($data_array);
+
+	$stmt = null;
+	$conn = null;
+
+	return;
+}
+
+// AGGIORNAMENTO
+function aggiornamento(String $tabella, Array $data_array) {
+
+	$sql_starter = "UPDATE `$tabella` SET";
+
+	switch ($tabella) {
+		case 'Comune':
+			$sql = "$sql_starter `provincia` = :provincia, `nome` = :nome WHERE `codice` = :codice";
+			break;
+		case 'Autostrada':
+			$sql = "$sql_starter `cod_eu` = :cod_eu, `nome` = :nome, `lunghezza` = :lunghezza WHERE `cod_naz` = :cod_naz";
+			break;
+		case 'Casello':
+			$sql = "$sql_starter `cod_naz` = :cod_naz, `comune` = :comune, `nome` = :nome, `x` = :x, `y` = :y, `is_automatico` = :is_automatico, `data_automazione` = :data_automazione WHERE `codice` = :codice";
+			break;
+		default:
+			return;
+	}
+
+	// Esecuzione query
+	$conn = database_connection_v2();
+
+	$stmt = $conn->prepare($sql);
+
+	$stmt->execute($data_array);
+
+	$stmt = null;
+	$conn = null;
+
+	return;
+}
+
+// INSERIMENTO
+function inserimento(String $tabella, Array $data_array) {
+
+	$sql_starter = "INSERT INTO $tabella";
+
+	switch ($tabella) {
+		case 'Comune':
+			$sql = "$sql_starter (`codice`, `provincia`, `nome`) VALUES (:codice, :provincia, :nome)";
+			break;
+		case 'Autostrada':
+			$sql = "$sql_starter (`cod_naz`, `cod_eu`, `nome`, `lunghezza`) VALUES (:cod_naz, :cod_eu, :nome, :lunghezza)";
+			break;
+		case 'Casello':
+			$sql = "$sql_starter (`codice`, `cod_naz`, `comune`, `nome`, `x`, `y`, `is_automatico`, `data_automazione`) VALUES (:codice, :cod_naz, :comune, :nome, :x, :y, :is_automatico, :data_automazione)";
+			break;
+		default:
+			return;
+	}
+
+	// Esecuzione query
+	$conn = database_connection_v2();
+
+	$stmt = $conn->prepare($sql);
+
+	$stmt->execute($data_array);
+
+	$stmt = null;
+	$conn = null;
+
+	return;
+}
 ?>
