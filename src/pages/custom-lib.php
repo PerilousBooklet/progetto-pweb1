@@ -180,9 +180,9 @@ function print_no_search(String $tabella, bool $is_search) {
 function while_regione($result)
 {
 	foreach ($result as $row) {
-		echo "<tr class'rs-row'>";
-		echo "<td class'rs-data'>" . $row["codice"] . "</td>";
-		echo "<td class'rs-data'>" . $row["nome"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["codice"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
 		echo "</tr>";
 	}
 }
@@ -190,10 +190,10 @@ function while_regione($result)
 function while_provincia($result)
 {
 	foreach ($result as $row) {
-		echo "<tr class'rs-row'>";
-		echo "<td class'rs-data'>" . $row["sigla"] . "</td>";
-		echo "<td class'rs-data'>" . $row["regione"] . "</td>";
-		echo "<td class'rs-data'>" . $row["nome"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["sigla"] . "</td>";
+		echo "<td class='rs-data'>" . $row["regione"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
 		echo "</tr>";
 	}
 }
@@ -201,10 +201,10 @@ function while_provincia($result)
 function while_comune($result)
 {
 	foreach ($result as $row) {
-		echo "<tr class'rs-row'>";
-		echo "<td class'rs-data'>" . $row["codice"] . "</td>";
-		echo "<td class'rs-data'>" . $row["provincia"] . "</td>";
-		echo "<td class'rs-data'>" . $row["nome"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["codice"] . "</td>";
+		echo "<td class='rs-data'>" . $row["provincia"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
 		echo "</tr>";
 	}
 }
@@ -212,11 +212,11 @@ function while_comune($result)
 function while_autostrada($result)
 {
 	foreach ($result as $row) {
-		echo "<tr class'rs-row'>";
-		echo "<td class'rs-data'>" . $row["cod_naz"] . "</td>";
-		echo "<td class'rs-data'>" . $row["cod_eu"] . "</td>";
-		echo "<td class'rs-data'>" . $row["nome"] . "</td>";
-		echo "<td class'rs-data'>" . $row["lunghezza"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["cod_naz"] . "</td>";
+		echo "<td class='rs-data'>" . $row["cod_eu"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
+		echo "<td class='rs-data'>" . $row["lunghezza"] . "</td>";
 		echo "</tr>";
 	}
 }
@@ -231,15 +231,15 @@ function while_casello($result)
 			$row["is_automatico"] = "Si";
 		}
 
-		echo "<tr class'rs-row'>";
-		echo "<td class'rs-data'>" . $row["codice"] . "</td>";
-		echo "<td class'rs-data'>" . $row["cod_naz"] . "</td>";
-		echo "<td class'rs-data'>" . $row["comune"] . "</td>";
-		echo "<td class'rs-data'>" . $row["nome"] . "</td>";
-		echo "<td class'rs-data'>" . $row["x"] . "</td>";
-		echo "<td class'rs-data'>" . $row["y"] . "</td>";
-		echo "<td class'rs-data'>" . $row["is_automatico"] . "</td>";
-		echo "<td class'rs-data'>" . $row["data_automazione"] . "</td>";
+		echo "<tr class='rs-row'>";
+		echo "<td class='rs-data'>" . $row["codice"] . "</td>";
+		echo "<td class='rs-data'>" . $row["cod_naz"] . "</td>";
+		echo "<td class='rs-data'>" . $row["comune"] . "</td>";
+		echo "<td class='rs-data'>" . $row["nome"] . "</td>";
+		echo "<td class='rs-data'>" . $row["x"] . "</td>";
+		echo "<td class='rs-data'>" . $row["y"] . "</td>";
+		echo "<td class='rs-data'>" . $row["is_automatico"] . "</td>";
+		echo "<td class='rs-data'>" . $row["data_automazione"] . "</td>";
 		echo "</tr>";
 	}
 }
