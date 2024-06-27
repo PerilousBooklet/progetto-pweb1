@@ -50,7 +50,7 @@
 
 			<div class="filterOption">
 				<label for="data">Data</label>
-				<input type="data_automazione" name="data" id="input-data" />
+				<input type="date" name="data_automazione" id="input-data" />
 			</div>
 
 			<?php
@@ -117,8 +117,8 @@
 
 		<div id="queryResult" class="roundedElement">
 			<?php
-			table_gen("Casello");
 			// include 'modules/mockUpTable.php';
+			table_gen("Casello");
 			?>
 		</div>
 

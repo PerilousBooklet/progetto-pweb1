@@ -80,8 +80,8 @@
 		<!-- Content -->
 		<div id="queryResult" class="roundedElement">
 			<?php
-			table_gen("Comune");
 			// include 'modules/mockUpTable.php';
+			table_gen("Comune");
 			?>
 		</div>
 

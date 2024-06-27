@@ -78,8 +78,8 @@
 
 		<div id="queryResult" class="roundedElement">
 			<?php
-			table_gen("Autostrada");
 			// include 'modules/mockUpTable.php';
+			table_gen("Autostrada");
 			?>
 		</div>
 
