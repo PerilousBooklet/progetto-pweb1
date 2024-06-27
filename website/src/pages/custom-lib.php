@@ -139,12 +139,6 @@ function print_no_search(string $tabella, bool $is_search)
 		$stmt = $conn->query($sql);
 	}
 
-	echo "<br/>";
-	$stmt->debugDumpParams();
-	echo "<br/>";
-
-
-
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	if (empty(array_filter($result))) {
