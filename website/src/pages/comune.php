@@ -37,7 +37,7 @@
 
 		<h2>Modifica</h2>
 
-		<form id="updateForm">
+		<div id="updateForm">
 
 			<?php
 			include 'modules/optionListComune.html';
@@ -47,7 +47,7 @@
 			include 'modules/editButtons.html';
 			?>
 
-		</form>
+		</div>
 
 	</dialog>
 
