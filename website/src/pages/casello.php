@@ -18,9 +18,23 @@
 
 	<!-- Icons -->
 	<link rel="icon" href="../icons/road.png" type="image/x-icon" />
+
+	<script>
+		function blockDate() {
+			if (
+				document.getElementById("input-auto-null").checked ||
+				document.getElementById("input-auto-false").checked
+			) {
+				document.getElementById("input-data").setAttribute("disabled", "");
+			}
+			else{
+				document.getElementById("input-data").removeAttribute("disabled");
+			}
+		}
+	</script>
 </head>
 
-<body>
+<body onload="blockDate()">
 
 	<?php
 	include 'custom-lib.php';
@@ -80,23 +94,23 @@
 
 				<div class="filterOption">
 
-					<label for="tipoCasello">Tipo Casello</label>
+					<label for="tipoCasello">Tipo Casello</label >
 
 					<br />
 
-					<input id="input-auto-false" type="radio" name="is_automatico" value="0">
+					<input id="input-auto-false" type="radio" name="is_automatico" value="0" onclick="blockDate()">
 
 					<label for="input-auto-false">Presenziato</label>
 
 					<br />
 
-					<input id="input-auto-true" type="radio" name="is_automatico" value="1">
+					<input id="input-auto-true" type="radio" name="is_automatico" value="1" onclick="blockDate()">
 
 					<label for="input-auto-true">Automatico</label>
 
 					<br />
 
-					<input id="input-auto-null" type="radio" name="is_automatico" value="" checked>
+					<input id="input-auto-null" type="radio" name="is_automatico" value="" checked onclick="blockDate()">
 
 					<label for="input-auto-null">Tutti</label>
 
