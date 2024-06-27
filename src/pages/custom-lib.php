@@ -35,13 +35,10 @@ function database_connection_v2() {
 */
 function table_gen(String $tabella)
 {
-
 	if (empty($_POST)) {
-		echo "$_POST<br/>";
 		print_no_search($tabella, true);
 	} else {
-		var_dump($_POST);
-		print_yes_search($tabella);
+		print_no_search($tabella, false);
 	}
 
 	return;
@@ -53,10 +50,10 @@ function print_yes_search(String $tabella) {
 
 	switch ($tabella) {
 		case 'Comune':
-			$sql = "$sql_starter `codice` = :codice";
+			$sql = "$sql_starter `nome` LIKE :nome AND `codice` LIKE :codice AND `provincia` LIKE :provincia";
 			break;
 		case 'Autostrada':
-			$sql = "$sql_starter `cod_naz` = :cod_naz";
+			$sql = "$sql_starter `cod_naz` LIKE :cod_naz AND `cod_eu` LIKE :cod_eu AND `nome` LIKE :nome AND `lunghezza` LIKE :lunghezza";
 			break;
 		case 'Casello':
 			$sql = "$sql_starter `cod_naz` LIKE :cod_naz AND `comune` LIKE :comune AND `nome` LIKE :nome AND `x` = LIKE :x AND `y` LIKE :y AND `is_automatico` LIKE :is_automatico AND `data_automazione` LIKE :data_automazione AND `codice` LIKE :codice";
@@ -119,7 +116,9 @@ function print_no_search(String $tabella, bool $is_search) {
 	if (!$is_search) {
 		$sql = print_yes_search($tabella);
 		$stmt = $conn->prepare($sql);
+
 		$data_array = $_POST;
+
 		$stmt->execute($data_array);
 	} else {
 		$sql = "SELECT * FROM `$tabella`";
