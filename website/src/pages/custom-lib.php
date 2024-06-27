@@ -7,12 +7,13 @@ function database_connection(string $Database)
 }
 
 //                           ↓ ultrakill reference
-function database_connection_v2() {
+function database_connection_v2()
+{
 	$username = "foglienipw";
 	$password = "";
 	$Database = "my_foglienipw";
 	$host = "localhost";
-	
+
 	$dsn = "mysql:host=$host;dbname=$Database;charset=UTF8";
 
 	try {
@@ -28,13 +29,10 @@ function database_connection_v2() {
 	return $conn;
 }
 
-/*
-0 = successo
--1 = tabella invalida
--2 = tabella vuota
-*/
-function table_gen(String $tabella)
+
+function table_gen(string $tabella)
 {
+
 	if (empty($_POST)) {
 		print_no_search($tabella, true);
 	} else {
@@ -44,7 +42,8 @@ function table_gen(String $tabella)
 	return;
 }
 
-function print_yes_search(String $tabella) {
+function print_yes_search(string $tabella)
+{
 
 	$sql_starter = "SELECT * FROM $tabella WHERE";
 
@@ -56,7 +55,14 @@ function print_yes_search(String $tabella) {
 			$sql = "$sql_starter `cod_naz` LIKE :cod_naz AND `cod_eu` LIKE :cod_eu AND `nome` LIKE :nome AND `lunghezza` LIKE :lunghezza";
 			break;
 		case 'Casello':
-			$sql = "$sql_starter `cod_naz` LIKE :cod_naz AND `comune` LIKE :comune AND `nome` LIKE :nome AND `x` = LIKE :x AND `y` LIKE :y AND `is_automatico` LIKE :is_automatico AND `data_automazione` LIKE :data_automazione AND `codice` LIKE :codice";
+
+			if (isset($_POST["is_automatico"]) && $_POST["is_automatico"] == "0") {
+				$sql = "$sql_starter `cod_naz` LIKE :cod_naz AND `comune` LIKE :comune AND `nome` LIKE :nome AND `x` LIKE :x AND `y` LIKE :y AND `is_automatico` LIKE :is_automatico AND `data_automazione` IS NULL AND `codice` LIKE :codice";
+			} else if (isset($_POST["is_automatico"]) && $_POST["is_automatico"] == "1") {
+				$sql = "$sql_starter `cod_naz` LIKE :cod_naz AND `comune` LIKE :comune AND `nome` LIKE :nome AND `x` LIKE :x AND `y` LIKE :y AND `is_automatico` LIKE :is_automatico AND `data_automazione` LIKE :data_automazione AND `codice` LIKE :codice";
+			} else {
+				$sql = "$sql_starter `cod_naz` LIKE :cod_naz AND `comune` LIKE :comune AND `nome` LIKE :nome AND `x` LIKE :x AND `y` LIKE :y AND `is_automatico` LIKE :is_automatico AND `codice` LIKE :codice";
+			}
 			break;
 		default:
 			return;
@@ -65,7 +71,8 @@ function print_yes_search(String $tabella) {
 	return $sql;
 }
 
-function print_no_search(String $tabella, bool $is_search) {
+function print_no_search(string $tabella, bool $is_search)
+{
 	// NON TOCCARE A MENO CHE NON SAI COSA STAI FACENDO
 	$tabella_regione = array("sigla", "regione");
 	$visualizza_regione = array("Sigla", "Regione");
@@ -98,7 +105,7 @@ function print_no_search(String $tabella, bool $is_search) {
 			$visualizza_default = $visualizza_comune;
 			break;
 		case 'Autostrada':
-			$tabella_default = $tabella_autostrada;
+			$tatruebella_default = $tabella_autostrada;
 			$visualizza_default = $visualizza_autostrada;
 			break;
 		case 'Casello':
@@ -119,15 +126,28 @@ function print_no_search(String $tabella, bool $is_search) {
 
 		$data_array = $_POST;
 
+		if (isset($data_array["is_automatico"]) && ($data_array["is_automatico"] == "0" || $data_array["is_automatico"] == "")) {
+			unset($data_array["data_automazione"]);
+		}
+		foreach ($data_array as &$value) {
+			$value = "%$value%";
+		}
+
 		$stmt->execute($data_array);
 	} else {
 		$sql = "SELECT * FROM `$tabella`";
 		$stmt = $conn->query($sql);
 	}
 
+	echo "<br/>";
+	$stmt->debugDumpParams();
+	echo "<br/>";
+
+
+
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	if(empty(array_filter($result))) {
+	if (empty(array_filter($result))) {
 		echo "Tabella vuota";
 		return;
 	}
@@ -248,7 +268,8 @@ function while_casello($result)
 // Funzioni CRUD
 //
 
-function api() {
+function api()
+{
 
 	$jeson = file_get_contents("php://input");
 
@@ -281,11 +302,12 @@ function api() {
 			return;
 	}
 
-	
+
 }
 
 // RIMOZIONE
-function rimozione(String $tabella, Array $data_array) {
+function rimozione(string $tabella, array $data_array)
+{
 
 	$sql_starter = "DELETE FROM $tabella WHERE";
 
@@ -317,7 +339,8 @@ function rimozione(String $tabella, Array $data_array) {
 }
 
 // AGGIORNAMENTO
-function aggiornamento(String $tabella, Array $data_array) {
+function aggiornamento(string $tabella, array $data_array)
+{
 
 	$sql_starter = "UPDATE `$tabella` SET";
 
@@ -349,7 +372,8 @@ function aggiornamento(String $tabella, Array $data_array) {
 }
 
 // INSERIMENTO
-function inserimento(String $tabella, Array $data_array) {
+function inserimento(string $tabella, array $data_array)
+{
 
 	$sql_starter = "INSERT INTO $tabella";
 
@@ -379,4 +403,5 @@ function inserimento(String $tabella, Array $data_array) {
 
 	return;
 }
+
 ?>

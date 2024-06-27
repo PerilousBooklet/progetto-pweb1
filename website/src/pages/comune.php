@@ -60,9 +60,9 @@
 				<h2>Ricerca</h2>
 
 				<div class="filterOption">
-					<label for="codiceComune">Codice Comune</label>
+					<label for="input-codice">Codice Comune</label>
 					<br />
-					<input type="text" name="codice" placeholder="ID comune" class="filterInput">
+					<input id="input-codice" type="text" name="codice" placeholder="ID comune" class="filterInput">
 				</div>
 
 				<?php

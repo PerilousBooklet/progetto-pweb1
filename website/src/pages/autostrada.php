@@ -18,11 +18,6 @@
 
 	<!-- Icons -->
 	<link rel="icon" href="../icons/road.png" type="image/x-icon" />
-
-	<!-- Scripts -->
-	<script src="../libraries/jquery-3.7.1.min.js"></script>
-
-	<script src="../scripts/editRowUI.js"></script>
 </head>
 
 <body>
@@ -33,24 +28,6 @@
 	include 'modules/nav.html';
 	?>
 
-	<dialog id="editDialog" class="roundedElement">
-
-		<h2>Modifica</h2>
-
-		<form id="updateForm">
-
-			<?php
-			include 'modules/optionListAutostrada.html';
-			?>
-
-			<?php
-			include 'modules/editButtons.html';
-			?>
-
-		</form>
-
-	</dialog>
-
 	<main id="row">
 		<!-- Form Menu -->
 		<form class="filterPanel roundedElement" action="" method="POST">
@@ -59,14 +36,29 @@
 				<h2>Ricerca</h2>
 
 				<div class="filterOption">
-					<label for="codiceNazione">Codice Nazione</label>
+					<label for="input-cod_naz">Codice Nazione</label>
 					<br />
-					<input type="text" name="codiceNazione" placeholder="ID nazione" class="filterInput">
+					<input type="text" name="cod_naz" placeholder="ID nazione" class="filterInput" id="input-cod_naz">
 				</div>
 
-				<?php
-				include 'modules/optionListAutostrada.html';
-				?>
+				<div class="filterOption">
+					<label for="input-cod_eu">Codice Europeo</label>
+					<br />
+					<input type="text" name="cod_eu" placeholder="ID europeo" class="filterInput" id="input-cod_eu"/>
+				</div>
+
+				<div class="filterOption">
+					<label for="input-nome">Nome Autostrada</label>
+					<br />
+					<input type="text" name="nome" placeholder="nome autostrada" class="filterInput" id="input-nome"/>
+				</div>
+
+				<div class="filterOption">
+					<label for="input-lunghezza">Lunghezza Autostrada</label>
+					<br />
+					<input type="number" name="lunghezza" placeholder="lunghezza autostrada" class="filterInput" id="input-lunghezza" />
+				</div>
+
 
 			</div>
 

@@ -18,11 +18,6 @@
 
 	<!-- Icons -->
 	<link rel="icon" href="../icons/road.png" type="image/x-icon" />
-
-	<!-- Scripts -->
-	<script src="../libraries/jquery-3.7.1.min.js"></script>
-
-	<script src="../scripts/editRowUI.js"></script>
 </head>
 
 <body>
@@ -34,36 +29,9 @@
 	include 'modules/editUICasello.html';
 	?>
 
-	<dialog id="editDialog" class="roundedElement">
-
-		<h2>Modifica</h2>
-
-		<form id="updateForm" action="" method="POST">
-			<?php
-			include 'modules/optionListCasello.html';
-			?>
-
-			<div class="filterOption">
-				<label for="automatico">Automatico</label>
-				<input type="checkbox" name="is_automatico" id="input-automatico" />
-			</div>
-
-			<div class="filterOption">
-				<label for="data">Data</label>
-				<input type="date" name="data_automazione" id="input-data" />
-			</div>
-
-			<?php
-			include 'modules/editButtons.html';
-			?>
-
-		</form>
-
-	</dialog>
-
 	<main id="row">
 		<!-- Form Menu -->
-		<form class="filterPanel roundedElement">
+		<form class="filterPanel roundedElement" action="" method="POST">
 
 			<div id="filterPanelOptions">
 
@@ -71,17 +39,44 @@
 
 				<div class="filterOption">
 
-					<label for="IDCasello">ID</label>
+					<label for="input-id">ID</label>
 
 					<br />
 
-					<input type="text" placeholder="ID" class="filterInput">
+					<input type="text" placeholder="ID" name="codice" class="filterInput" id="input-id">
 
 				</div>
 
-				<?php
-				include 'modules/optionListCasello.html';
-				?>
+				<div class="filterOption">
+					<label for="input-cod_naz">Codice Nazionale</label>
+					<br />
+					<input type="text" placeholder="codice nazionale" name="cod_naz" id="input-cod_naz"
+						class="filterInput" />
+				</div>
+
+				<div class="filterOption">
+					<label for="input-comune">Nome Comune</label>
+					<br />
+					<input type="text" placeholder="comune" name="comune" id="input-comune" class="filterInput" />
+				</div>
+
+				<div class="filterOption">
+					<label for="input-casello">Nome Casello</label>
+					<br />
+					<input type="text" placeholder="casello" name="nome" id="input-casello" class="filterInput" />
+				</div>
+
+				<div class="filterOption">
+					<label for="input-c_x">Coordinata X</label>
+					<br />
+					<input placeholder="coordinata x" name="x" id="input-c_x" class="filterInput" />
+				</div>
+
+				<div class="filterOption">
+					<label for="input-c_y">Coordinata Y</label>
+					<br />
+					<input placeholder="coordinata y" name="y" id="input-c_y" class="filterInput" />
+				</div>
 
 				<div class="filterOption">
 
@@ -89,22 +84,27 @@
 
 					<br />
 
-					<input type="radio" name="casello">
+					<input id="input-auto-false" type="radio" name="is_automatico" value="0">
 
-					<label for="presenziato">Presenziato</label>
-
-					<br />
-
-					<input type="radio" name="casello">
-
-					<label for="automatico">Automatico</label>
+					<label for="input-auto-false">Presenziato</label>
 
 					<br />
 
-					<input type="radio" name="casello" checked>
+					<input id="input-auto-true" type="radio" name="is_automatico" value="1">
 
-					<label for="tutti">Tutti</label>
+					<label for="input-auto-true">Automatico</label>
 
+					<br />
+
+					<input id="input-auto-null" type="radio" name="is_automatico" value="" checked>
+
+					<label for="input-auto-null">Tutti</label>
+
+				</div>
+
+				<div class="filterOption">
+					<label for="input-data">Data</label>
+					<input type="date" name="data_automazione" id="input-data" class="filterInput" />
 				</div>
 
 			</div>
