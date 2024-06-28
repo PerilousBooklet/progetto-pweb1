@@ -25,7 +25,7 @@
 	<script src="../scripts/editRowUI.js"></script>
 </head>
 
-<body>
+<body onload="populate()">
 
 	<?php
 	include 'custom-lib.php';
@@ -40,10 +40,10 @@
 		<div id="updateForm">
 
 			<div class="filterOption">
-				<label for="input-provincia-modal">Provincia</label>
+				<label for="input-provincia-search">Codice Provincia</label>
 				<br />
-				<input id="input-provincia-modal" type="text" name="provincia" placeholder="ID provincia"
-					class="filterInput" />
+				<select id="input-provincia-search" type="text" name="provincia" class="filterInput">
+				</select>
 			</div>
 
 			<div class="filterOption">
@@ -51,7 +51,6 @@
 				<br />
 				<input id="input-nome-modal" type="text" name="nome" placeholder="nome comune" class="filterInput" />
 			</div>
-
 
 			<?php
 			include 'modules/editButtons.html';
@@ -94,7 +93,7 @@
 			</div>
 
 			<div id="submitDiv">
-				<button id="submitSearchButton" class="button leftButton" type="submit">
+				<button id="submitSearchButton" class="button leftButton" type="submit" onclick="search()">
 					Cerca
 				</button>
 				<button id="InsertNewRowButton" class="button rightButton" type="button" onclick="ins()">
@@ -102,7 +101,7 @@
 				</button>
 			</div>
 			<div>
-				<button id="clearSearchButton" class="button" type="reset">
+				<button id="clearSearchButtonIns" class="button" type="reset">
 					Svuota
 				</button>
 			</div>
