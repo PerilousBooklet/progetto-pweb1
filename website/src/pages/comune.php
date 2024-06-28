@@ -79,8 +79,8 @@
 				<div class="filterOption">
 					<label for="input-provincia-search">Codice Provincia</label>
 					<br />
-					<input id="input-provincia-search" type="text" name="provincia" placeholder="codice provincia"
-						class="filterInput" />
+					<select id="input-provincia-search" type="text" name="provincia" class="filterInput">
+					</select>
 				</div>
 
 				<div class="filterOption">
