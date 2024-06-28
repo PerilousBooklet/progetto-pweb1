@@ -38,7 +38,6 @@ function rm() {
 }
 
 function upd() {
-  console.log(document.getElementById("input-provincia-modal"))
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php", false);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -65,9 +64,7 @@ function ins() {
   console.log(document.getElementById("input-nome-search").value);
 
   var codice_search = document.getElementById("input-codice-search").value;
-  var provincia_search = document.getElementById(
-    "input-provincia-search"
-  ).value;
+  var provincia_search = document.getElementById("input-provincia-search").value;
   var nome_search = document.getElementById("input-nome-search").value;
 
   document.cookie = JSON.stringify({
@@ -76,6 +73,9 @@ function ins() {
     "nome": nome_search
   });
 
+  document.cookie = btoa(json);
+
+  console.log(document.cookie);
 
   xhr.send(
     JSON.stringify({
@@ -92,20 +92,28 @@ function ins() {
 
 function search() {
   var codice_search = document.getElementById("input-codice-search").value;
-  var provincia_search = document.getElementById(
-    "input-provincia-search"
-  ).value;
+  var provincia_search = document.getElementById("input-provincia-search").value;
   var nome_search = document.getElementById("input-nome-search").value;
 
-  document.cookie = JSON.stringify({
+  var json =  JSON.stringify({
     "codice": codice_search,
     "provincia": provincia_search,
     "nome": nome_search
   });
+
+  document.cookie = btoa(json);
+
+  console.log(document.cookie);
 }
 
 function populate() {
-  document.getElementById("input-codice-search").value = JSON.parse($.cookie('codice'));
-  document.getElementById("input-provincia-search").value = JSON.parse($.cookie('provincia'));
-  document.getElementById("input-nome-search").value = JSON.parse($.cookie('nome'));
+
+  if(document.cookie != ""){
+    var json = JSON.parse(cookie);
+
+    document.getElementById("input-codice-search").value = json.codice;
+    document.getElementById("input-provincia-search").value = json.provincia;
+    document.getElementById("input-nome-search").value = json.nome;
+  }
+  
 }
