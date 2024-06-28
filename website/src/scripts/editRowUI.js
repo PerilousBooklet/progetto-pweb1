@@ -30,7 +30,7 @@ function rm() {
     JSON.stringify({
       operazione: "rm",
       tabella: "Comune",
-      ":codice": codice, //Codice
+      ":codice": codice //Codice
     })
   );
 
@@ -48,7 +48,7 @@ function upd() {
       tabella: "Comune",
       ":codice": codice, //Codice
       ":provincia": document.getElementById("input-provincia-modal").value, //provincia
-      ":nome": document.getElementById("input-nome-modal").value, //nome
+      ":nome": document.getElementById("input-nome-modal").value //nome
     })
   );
 
@@ -64,15 +64,48 @@ function ins() {
   console.log(document.getElementById("input-provincia-search").value);
   console.log(document.getElementById("input-nome-search").value);
 
+  var codice_search = document.getElementById("input-codice-search").value;
+  var provincia_search = document.getElementById(
+    "input-provincia-search"
+  ).value;
+  var nome_search = document.getElementById("input-nome-search").value;
+
+  document.cookie = JSON.stringify({
+    "codice": codice_search,
+    "provincia": provincia_search,
+    "nome": nome_search
+  });
+
+
   xhr.send(
     JSON.stringify({
       operazione: "ins",
       tabella: "Comune",
-      ":codice": document.getElementById("input-codice-search").value, //Codice
-      ":provincia": document.getElementById("input-provincia-search").value, //provincia
-      ":nome": document.getElementById("input-nome-search").value, //nome
+      ":codice": codice_search, //Codice
+      ":provincia": provincia_search, //provincia
+      ":nome": nome_search //nome
     })
   );
 
   location.reload();
+}
+
+function search() {
+  var codice_search = document.getElementById("input-codice-search").value;
+  var provincia_search = document.getElementById(
+    "input-provincia-search"
+  ).value;
+  var nome_search = document.getElementById("input-nome-search").value;
+
+  document.cookie = JSON.stringify({
+    "codice": codice_search,
+    "provincia": provincia_search,
+    "nome": nome_search
+  });
+}
+
+function populate() {
+  document.getElementById("input-codice-search").value = JSON.parse($.cookie('codice'));
+  document.getElementById("input-provincia-search").value = JSON.parse($.cookie('provincia'));
+  document.getElementById("input-nome-search").value = JSON.parse($.cookie('nome'));
 }
