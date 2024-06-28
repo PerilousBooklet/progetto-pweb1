@@ -410,8 +410,10 @@ function dropdown_generate(){
 
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+	echo "<option value=''></option>";
+
 	foreach($result as $row) {
-		echo "<element value=\"$row\">$row</option>";
+		echo "<option value='" . $row["sigla"] . "'>" . $row["sigla"] ."</option>";
 	}
 
 	// Chuido la connessione con il db
