@@ -36,25 +36,25 @@
 				<h2>Ricerca</h2>
 
 				<div class="filterOption">
-					<label for="input-cod_naz">Codice Nazione</label>
+					<label for="input-cod_naz">Codice Nazionale</label>
 					<br />
-					<input type="text" name="cod_naz" placeholder="ID nazione" class="filterInput" id="input-cod_naz">
+					<input type="text" name="cod_naz" placeholder="codice nazionale" class="filterInput" id="input-cod_naz">
 				</div>
 
 				<div class="filterOption">
 					<label for="input-cod_eu">Codice Europeo</label>
 					<br />
-					<input type="text" name="cod_eu" placeholder="ID europeo" class="filterInput" id="input-cod_eu"/>
+					<input type="text" name="cod_eu" placeholder="codice europeo" class="filterInput" id="input-cod_eu"/>
 				</div>
 
 				<div class="filterOption">
-					<label for="input-nome">Nome Autostrada</label>
+					<label for="input-nome">Nome</label>
 					<br />
 					<input type="text" name="nome" placeholder="nome autostrada" class="filterInput" id="input-nome"/>
 				</div>
 
 				<div class="filterOption">
-					<label for="input-lunghezza">Lunghezza Autostrada</label>
+					<label for="input-lunghezza">Lunghezza</label>
 					<br />
 					<input type="number" name="lunghezza" placeholder="lunghezza autostrada" class="filterInput" id="input-lunghezza" />
 				</div>

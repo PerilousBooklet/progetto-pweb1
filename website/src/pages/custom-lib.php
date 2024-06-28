@@ -84,10 +84,10 @@ function print_no_search(string $tabella, bool $is_search)
 	$visualizza_comune = array("Codice", "Provincia", "Nome");
 
 	$tabella_autostrada = array("cod_naz", "cod_eu", "nome", "lunghezza");
-	$visualizza_autostrada = array("Codice nazionale", "Codice europeo", "Nome", "Lunghezza");
+	$visualizza_autostrada = array("Codice Autostrada", "Codice Europeo", "Nome", "Lunghezza");
 
 	$tabella_casello = array("codice", "cod_naz", "comune", "nome", "x", "y", "is_automatico", "data_automazione");
-	$visualizza_casello = array("Codice", "Codice nazionale", "Comune", "Nome", "x", "y", "Automatico", "Data automazione");
+	$visualizza_casello = array("Codice", "Codice Autostrada", "Codice Comune", "Nome", "Coord. X", "Coord. Y", "Automatico", "Data automazione");
 
 
 	// Selezione della tabella sulla quale lavorare

@@ -53,31 +53,31 @@
 
 				<div class="filterOption">
 
-					<label for="input-id">ID</label>
+					<label for="input-id">Codice</label>
 
 					<br />
 
-					<input type="text" placeholder="ID" name="codice" class="filterInput" id="input-id">
+					<input type="text" placeholder="codice casello" name="codice" class="filterInput" id="input-id">
 
 				</div>
 
 				<div class="filterOption">
-					<label for="input-cod_naz">Codice Nazionale</label>
+					<label for="input-cod_naz">Codice Autostrada</label>
 					<br />
-					<input type="text" placeholder="codice nazionale" name="cod_naz" id="input-cod_naz"
+					<input type="text" placeholder="codice autostrada" name="cod_naz" id="input-cod_naz"
 						class="filterInput" />
 				</div>
 
 				<div class="filterOption">
-					<label for="input-comune">Nome Comune</label>
+					<label for="input-comune">Codice Comune</label>
 					<br />
-					<input type="text" placeholder="comune" name="comune" id="input-comune" class="filterInput" />
+					<input type="text" placeholder="codice comune" name="comune" id="input-comune" class="filterInput" />
 				</div>
 
 				<div class="filterOption">
-					<label for="input-casello">Nome Casello</label>
+					<label for="input-casello">Nome</label>
 					<br />
-					<input type="text" placeholder="casello" name="nome" id="input-casello" class="filterInput" />
+					<input type="text" placeholder="nome casello" name="nome" id="input-casello" class="filterInput" />
 				</div>
 
 				<div class="filterOption">

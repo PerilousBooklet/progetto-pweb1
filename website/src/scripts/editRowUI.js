@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function rm() {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php");
+  xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php", false);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(JSON.stringify({
     "operazione":"rm",
@@ -35,14 +35,14 @@ function rm() {
 
 function upd() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php");
+	xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php", false);
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.send(JSON.stringify({
 	  "operazione":"upd",
 	  "tabella":"Comune",
 	  ":codice":codice, //Codice
-	  ":provincia":document.getElementById("input-provincia").value, //provincia
-	  ":nome":document.getElementById("input-nome").value //nome
+	  ":provincia":document.getElementById("input-provincia-modal").value, //provincia
+	  ":nome":document.getElementById("input-nome-modal").value //nome
 	}));
   
 	location.reload();
@@ -50,22 +50,22 @@ function upd() {
 
 
 
-// function ins() {
-// var xhr = new XMLHttpRequest();
-// xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php");
-// xhr.setRequestHeader("Content-Type", "application/json");
+function ins() {
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php");
+xhr.setRequestHeader("Content-Type", "application/json");
 
-// console.log(document.getElementById("input-codice-form").value);
-// console.log(document.getElementById("input-provincia-form").value);
-// console.log(document.getElementById("input-nome-form").value);
+console.log(document.getElementById("input-codice-form").value);
+console.log(document.getElementById("input-provincia-form").value);
+console.log(document.getElementById("input-nome-form").value);
 
-// xhr.send(JSON.stringify({
-//   "operazione":"upd",
-//   "tabella":"Comune",
-//   ":codice":document.getElementById("input-codice-form").value, //Codice
-//   ":provincia":document.getElementById("input-provincia-form").value, //provincia
-//   ":nome":document.getElementById("input-nome-form").value //nome
-// }));
+xhr.send(JSON.stringify({
+  "operazione":"upd",
+  "tabella":"Comune",
+  ":codice":document.getElementById("input-codice-form").value, //Codice
+  ":provincia":document.getElementById("input-provincia-form").value, //provincia
+  ":nome":document.getElementById("input-nome-form").value //nome
+}));
 
-// //location.reload();
-// }
+//location.reload();
+}

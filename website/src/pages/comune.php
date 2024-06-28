@@ -39,9 +39,19 @@
 
 		<div id="updateForm">
 
-			<?php
-			include 'modules/optionListComune.html';
-			?>
+			<div class="filterOption">
+				<label for="input-provincia-modal">Provincia</label>
+				<br />
+				<input id="input-provincia-modal" type="text" name="provincia" placeholder="ID provincia"
+					class="filterInput" />
+			</div>
+
+			<div class="filterOption">
+				<label for="input-nome-modal">Nome</label>
+				<br />
+				<input id="input-nome-modal" type="text" name="nome" placeholder="nome comune" class="filterInput" />
+			</div>
+
 
 			<?php
 			include 'modules/editButtons.html';
@@ -60,14 +70,24 @@
 				<h2>Ricerca</h2>
 
 				<div class="filterOption">
-					<label for="input-codice">Codice Comune</label>
+					<label for="input-codice-search">Codice</label>
 					<br />
-					<input id="input-codice" type="text" name="codice" placeholder="ID comune" class="filterInput">
+					<input id="input-codice-search" type="text" name="codice" placeholder="codice comune" class="filterInput">
 				</div>
 
-				<?php
-				include 'modules/optionListComune.html';
-				?>
+				<div class="filterOption">
+					<label for="input-provincia-search">Codice Provincia</label>
+					<br />
+					<input id="input-provincia-search" type="text" name="provincia" placeholder="codice provincia"
+						class="filterInput" />
+				</div>
+
+				<div class="filterOption">
+					<label for="input-nome-search">Nome</label>
+					<br />
+					<input id="input-nome-search" type="text" name="nome" placeholder="nome comune" class="filterInput" />
+				</div>
+
 
 			</div>
 
