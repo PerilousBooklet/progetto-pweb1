@@ -25,7 +25,7 @@
 	<script src="../scripts/editRowUI.js"></script>
 </head>
 
-<body onload="populate()">
+<body>
 
 	<?php
 	include 'custom-lib.php';
@@ -47,10 +47,6 @@
 							dropdown_generate_modal();
 						?>
 					</select>
-				<label for="input-provincia-search">Codice Provincia</label>
-				<br />
-				<select id="input-provincia-search" type="text" name="provincia" class="filterInput">
-				</select>
 			</div>
 
 			<div class="filterOption">
@@ -58,6 +54,7 @@
 				<br />
 				<input id="input-nome-modal" type="text" name="nome" placeholder="nome comune" class="filterInput" />
 			</div>
+
 
 			<?php
 			include 'modules/editButtons.html';
@@ -103,7 +100,7 @@
 			</div>
 
 			<div id="submitDiv">
-				<button id="submitSearchButton" class="button leftButton" type="submit" onclick="search()">
+				<button id="submitSearchButton" class="button leftButton" type="submit">
 					Cerca
 				</button>
 				<button id="InsertNewRowButton" class="button rightButton" type="button" onclick="ins()">
@@ -111,7 +108,7 @@
 				</button>
 			</div>
 			<div>
-				<button id="clearSearchButtonIns" class="button" type="reset">
+				<button id="clearSearchButton" class="button" type="reset">
 					Svuota
 				</button>
 			</div>
