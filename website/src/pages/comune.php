@@ -72,7 +72,8 @@
 				<div class="filterOption">
 					<label for="input-codice-search">Codice</label>
 					<br />
-					<input id="input-codice-search" type="text" name="codice" placeholder="codice comune" class="filterInput">
+					<input id="input-codice-search" type="text" name="codice" placeholder="codice comune"
+						class="filterInput">
 				</div>
 
 				<div class="filterOption">
@@ -85,15 +86,27 @@
 				<div class="filterOption">
 					<label for="input-nome-search">Nome</label>
 					<br />
-					<input id="input-nome-search" type="text" name="nome" placeholder="nome comune" class="filterInput" />
+					<input id="input-nome-search" type="text" name="nome" placeholder="nome comune"
+						class="filterInput" />
 				</div>
 
 
 			</div>
 
-			<?php
-			include 'modules/searchButtons.html';
-			?>
+			<div id="submitDiv">
+				<button id="submitSearchButton" class="button leftButton" type="submit">
+					Cerca
+				</button>
+				<button id="InsertNewRowButton" class="button rightButton" type="button" onclick="ins()">
+					Inserisci
+				</button>
+			</div>
+			<div>
+				<button id="clearSearchButton" class="button" type="reset">
+					Svuota
+				</button>
+			</div>
+
 
 		</form>
 
