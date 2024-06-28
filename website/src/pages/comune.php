@@ -40,10 +40,13 @@
 		<div id="updateForm">
 
 			<div class="filterOption">
-				<label for="input-provincia-modal">Provincia</label>
-				<br />
-				<input id="input-provincia-modal" type="text" name="provincia" placeholder="ID provincia"
-					class="filterInput" />
+			<label for="input-provincia-modal">Codice Provincia</label>
+					<br />
+					<select id="input-provincia-modal" type="text" name="provincia" class="filterInput">
+						<?php
+							dropdown_generate_modal();
+						?>
+					</select>
 			</div>
 
 			<div class="filterOption">
@@ -81,7 +84,7 @@
 					<br />
 					<select id="input-provincia-search" type="text" name="provincia" class="filterInput">
 						<?php
-							dropdown_generate()
+							dropdown_generate_form();
 						?>
 					</select>
 				</div>

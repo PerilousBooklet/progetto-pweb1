@@ -398,9 +398,9 @@ function inserimento(string $tabella, array $data_array)
 	return;
 }
 
-function dropdown_generate(){
+function dropdown_generate_form(){
 
-	$sql = "SELECT sigla FROM `Provincia`";
+	$sql = "SELECT sigla FROM `Provincia` ORDER BY sigla";
 
 	// Apertura connessione verso il database
 	$conn = database_connection_v2();
@@ -423,5 +423,38 @@ function dropdown_generate(){
 	return;
 }
 
+function dropdown_generate_modal(){
+
+	$sql = "SELECT sigla FROM `Provincia` ORDER BY sigla";
+
+	// Apertura connessione verso il database
+	$conn = database_connection_v2();
+	// Query di recupero dati dal db
+
+	$stmt = $conn->query($sql);
+
+	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	foreach($result as $row) {
+		echo "<option value='" . $row["sigla"] . "'>" . $row["sigla"] ."</option>";
+	}
+
+	// Chuido la connessione con il db
+	$stmt = null;
+	$conn = null;
+
+	return;
+}
+
+function funny_v1() {
+	while(true){}
+}
+
+function funny_v2() {
+
+	$items = array("Amogus", "Dietro di te", "So cosa hai fatto", "Vivo nelle pareti di casa tua", "Also try Minecraft", "Also try Terraria", "... -Red", "'Non credere a tutto ciò che leggi su internet' -Albert Einstein", "Written in 🚀Rust🚀", "You even make the devil cry");
+
+	echo $items[array_rand($items)];
+}
 
 ?>

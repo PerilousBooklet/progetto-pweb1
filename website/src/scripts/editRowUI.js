@@ -38,6 +38,7 @@ function rm() {
 }
 
 function upd() {
+  console.log(document.getElementById("input-provincia-modal"))
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php", false);
   xhr.setRequestHeader("Content-Type", "application/json");
