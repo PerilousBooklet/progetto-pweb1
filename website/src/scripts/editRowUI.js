@@ -47,3 +47,23 @@ function upd() {
   
 	location.reload();
   }
+
+  function ins() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php");
+	xhr.setRequestHeader("Content-Type", "application/json");
+
+	console.log(document.getElementById("input-codice-form").value);
+	console.log(document.getElementById("input-provincia-form").value);
+	console.log(document.getElementById("input-nome-form").value);
+
+	xhr.send(JSON.stringify({
+	  "operazione":"upd",
+	  "tabella":"Comune",
+	  ":codice":document.getElementById("input-codice-form").value, //Codice
+	  ":provincia":document.getElementById("input-provincia-form").value, //provincia
+	  ":nome":document.getElementById("input-nome-form").value //nome
+	}));
+  
+	//location.reload();
+  }
