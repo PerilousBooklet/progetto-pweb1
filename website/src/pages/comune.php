@@ -80,7 +80,9 @@
 					<label for="input-provincia-search">Codice Provincia</label>
 					<br />
 					<select id="input-provincia-search" type="text" name="provincia" class="filterInput">
-						
+						<?php
+							dropdown_generate()
+						?>
 					</select>
 				</div>
 
