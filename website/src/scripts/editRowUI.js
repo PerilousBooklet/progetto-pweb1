@@ -33,3 +33,17 @@ function rm() {
   location.reload();
 }
 
+function upd() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "http://foglienipw.altervista.org/src/pages/api.php");
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.send(JSON.stringify({
+	  "operazione":"upd",
+	  "tabella":"Comune",
+	  ":codice":codice, //Codice
+	  ":provincia":document.getElementById("input-provincia").value, //provincia
+	  ":nome":document.getElementById("input-nome").value //nome
+	}));
+  
+	location.reload();
+  }
