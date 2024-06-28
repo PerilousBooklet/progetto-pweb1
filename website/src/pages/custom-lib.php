@@ -398,4 +398,28 @@ function inserimento(string $tabella, array $data_array)
 	return;
 }
 
+function dropdown_generate(){
+
+	$sql = "SELECT sigla FROM `Provincia`";
+
+	// Apertura connessione verso il database
+	$conn = database_connection_v2();
+	// Query di recupero dati dal db
+
+	$stmt = $conn->query($sql);
+
+	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	foreach($result as $row) {
+		echo "<element value=\"$row\">$row</option>";
+	}
+
+	// Chuido la connessione con il db
+	$stmt = null;
+	$conn = null;
+
+	return;
+}
+
+
 ?>
