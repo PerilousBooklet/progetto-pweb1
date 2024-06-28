@@ -54,32 +54,28 @@
 	<!-- Row -->
 	<main id="row">
 		<!-- Form Menu -->
-		 <div>
-			<form class="filterPanel roundedElement" action="" method="POST">
-				<div id="filterPanelOptions">
+		<form class="filterPanel roundedElement" action="" method="POST">
+			<div id="filterPanelOptions">
 
-					<h2>Ricerca</h2>
+				<h2>Ricerca</h2>
 
-					<div class="filterOption">
-						<label for="input-codice-form">Codice Comune</label>
-						<br />
-						<input id="input-codice-form" type="text" name="codice" placeholder="ID comune" class="filterInput">
-					</div>
-
-					<?php
-					include 'modules/optionListComune.html';
-					?>
-
+				<div class="filterOption">
+					<label for="input-codice">Codice Comune</label>
+					<br />
+					<input id="input-codice" type="text" name="codice" placeholder="ID comune" class="filterInput">
 				</div>
 
 				<?php
-				include 'modules/searchButtons.html';
+				include 'modules/optionListComune.html';
 				?>
-			</form>
-			<button onclick="ins()">Inserisci</button>
-		</div>
 
-		
+			</div>
+
+			<?php
+			include 'modules/searchButtons.html';
+			?>
+
+		</form>
 
 		<!-- Content -->
 		<div id="queryResult" class="roundedElement">
